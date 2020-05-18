@@ -1,0 +1,2947 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: StatsBold;
+    src: url(fonts/StatsGroup-Bold.otf);
+}
+
+@font-face {
+    font-family: StatsRegular;
+    src: url(fonts/Stats-Regular.otf);
+}
+
+.logo {
+    position: relative;
+    width: 10%;
+    height: 70px;
+    float: left;
+}
+
+.logo svg {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fechar {
+    position: relative;
+    width: 10%;
+    height: 70px;
+}
+
+.fechar svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+.icone {
+    background-color: #ACA8C1;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+}
+
+.fa-line-chart {
+    background-color: #ACA8C1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.textoPrincipal {
+    margin-top: 100px;
+}
+
+.txtPrincipal {
+    position: relative;
+    margin-left: 10%;
+    font-family: StatsBold;
+    color: #2C293A;
+    font-size: 32px;
+}
+
+.txtRecomendacao {
+    position: relative;
+    margin-left: 10%;
+    color: #ACA8C1;
+    font-family: StatsBold;
+}
+
+.itensRecomendacao {
+    position: relative;
+    margin-left: 13%;
+    color: #ACA8C1;
+    font-family: StatsRegular;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile+label {
+    margin: auto;
+    width: 250%;
+    height: 50px;
+    font-family: StatsBold;
+    font-size: 15px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    background-color: #2DE082;
+    border-radius: 30px;
+    display: inline-block;
+}
+
+.inputfile:focus+label,
+.inputfile+label:hover {
+    width: 239%;
+    background-color: #fff;
+    color: #2C293A;
+    border: 3px solid #2DE082;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    line-height: 45px;
+}
+
+.inputfile+label {
+    cursor: pointer;
+}
+
+.manual {
+    width: 150%;
+    height: 50px;
+    background-color: #fff;
+    color: #2C293A;
+    border: 3px solid #2DE082;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    font-family: StatsBold;
+    font-size: 15px;
+}
+
+.manual:hover {
+    font-family: StatsBold;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    background-color: #2DE082;
+    border-radius: 30px;
+}
+
+.upload {
+    float: left;
+    margin-left: -10%;
+}
+
+.manualmente {
+    float: right;
+    margin-left: 35%;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+    width: 100%;
+}
+
+.primeira-parte {
+    margin-top: 5%;
+}
+
+.moverTextos {
+    width: 100%;
+}
+
+.texto-primeiro {
+    margin-top: 5%;
+}
+
+.primeiro-passo {
+    position: relative;
+    color: #2C293A;
+    font-size: 25px;
+    font-family: StatsBold;
+    margin-left: 15%;
+    margin-bottom: 5%;
+}
+
+.txtPadrao {
+    position: relative;
+    margin-left: 15%;
+    color: #2C293A;
+    font-size: 17px;
+    font-family: StatsBold;
+}
+
+div textarea {
+    color: #ACA8C1;
+    width: 71%;
+    height: 80px;
+    border-radius: 7px;
+    border: 2px solid #ACA8C1;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    font-family: StatsRegular;
+    outline: none;
+    position: relative;
+    margin-left: 15%;
+    margin-bottom: 2%;
+}
+
+.populacao svg {
+    width: 45%;
+    position: absolute;
+    left: 19%;
+    top: 20%;
+    transform: translate(19%, -20%);
+}
+
+.amostra svg {
+    width: 45%;
+    position: absolute;
+    left: 19%;
+    top: 20%;
+    transform: translate(19%, -20%);
+}
+
+.populacao {
+    float: left;
+    color: #ACA8C1;
+    width: 200px;
+    height: 150px;
+    border-radius: 7px;
+    border: 2px solid #ACA8C1;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    font-family: StatsRegular;
+    position: absolute;
+    left: 23.5%;
+    top: 205%;
+    transform: translate(-23.5%, -205%);
+    cursor: pointer;
+}
+
+.populacao:hover {
+    border: 2px solid #2DE082;
+    transition-duration: 0.4s;
+    color: #24186D;
+}
+
+.populacao:hover #pessoas {
+    fill: #24186D;
+    transition-duration: 0.4s;
+}
+
+#populacao:checked~label .populacao {
+    color: #fff;
+    background-color: #2DE082;
+    border-color: #2DE082;
+    border-style: solid;
+    transition-duration: 0.9s;
+}
+
+#populacao:checked~label #pessoas {
+    fill: #fff;
+    transition-duration: 0.9s;
+}
+
+.amostra {
+    float: right;
+    color: #ACA8C1;
+    width: 200px;
+    height: 150px;
+    border-radius: 7px;
+    border: 2px solid #ACA8C1;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    font-family: StatsRegular;
+    position: absolute;
+    left: 77.7%;
+    top: 205%;
+    transform: translate(-77.7%, -205%);
+    cursor: pointer;
+}
+
+.amostra:hover {
+    border: 2px solid #2DE082;
+    transition-duration: 0.4s;
+    color: #24186D;
+}
+
+.amostra:hover #frascos {
+    fill: #24186D;
+    transition-duration: 0.4s;
+}
+
+#amostra:checked~label .amostra {
+    color: #fff;
+    background-color: #2DE082;
+    border-color: #2DE082;
+    border-style: solid;
+    transition-duration: 0.9s;
+}
+
+#amostra:checked~label #frascos {
+    fill: #fff;
+    transition-duration: 0.9s;
+}
+
+.proximo {
+    width: 40%;
+    height: 50px;
+    background-color: #fff;
+    color: #2C293A;
+    border: 3px solid #2DE082;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    font-family: StatsBold;
+    font-size: 15px;
+    position: absolute;
+    left: 50%;
+    top: 140%;
+    transform: translate(-50%, 140%);
+}
+
+.proximo:hover {
+    font-family: StatsBold;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    background-color: #2DE082;
+    border-radius: 30px;
+}
+
+.txtPopulacao {
+    margin-top: 65%;
+    font-size: 17px;
+    text-align: center;
+    font-family: StatsBold;
+}
+
+.txtAmostra {
+    margin-top: 65%;
+    font-size: 17px;
+    text-align: center;
+    font-family: StatsBold;
+}
+
+.texto-segundo {
+    margin-top: 5%;
+}
+
+.segundo-passo {
+    position: relative;
+    color: #2C293A;
+    font-size: 25px;
+    font-family: StatsBold;
+    margin-left: 15%;
+    margin-bottom: 3%;
+}
+
+div input {
+    color: #ACA8C1;
+    width: 71%;
+    height: 40px;
+    border-radius: 7px;
+    border: 2px solid #ACA8C1;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    font-family: StatsRegular;
+    outline: none;
+    position: relative;
+    margin-left: 15%;
+    margin-bottom: 2%;
+}
+
+.nominal {
+    float: left;
+    color: #ACA8C1;
+    width: 200px;
+    height: 150px;
+    border-radius: 7px;
+    border: 2px solid #ACA8C1;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    font-family: StatsBold;
+    position: absolute;
+    left: 23.5%;
+    top: 230%;
+    transform: translate(-23.5%, -230%);
+    cursor: pointer;
+}
+
+.nominal svg {
+    width: 35%;
+    position: absolute;
+    left: 25%;
+    top: 20%;
+    transform: translate(25%, -20%);
+}
+
+.nominal:hover {
+    border: 2px solid #2DE082;
+    transition-duration: 0.4s;
+    color: #24186D;
+}
+
+.nominal:hover #chartnominal {
+    fill: #24186D;
+    transition-duration: 0.4s;
+}
+
+#nominal:checked~label .nominal {
+    color: #fff;
+    background-color: #2DE082;
+    border-color: #2DE082;
+    border-style: solid;
+    transition-duration: 0.9s;
+}
+
+#nominal:checked~label #chartnominal {
+    fill: #fff;
+    transition-duration: 0.9s;
+}
+
+.ordinal {
+    float: left;
+    color: #ACA8C1;
+    width: 200px;
+    height: 150px;
+    border-radius: 7px;
+    border: 2px solid #ACA8C1;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    font-family: StatsBold;
+    position: absolute;
+    left: 77.9%;
+    top: 230%;
+    transform: translate(-77.9%, -230%);
+    cursor: pointer;
+}
+
+.ordinal svg {
+    width: 35%;
+    position: absolute;
+    left: 24%;
+    top: 20%;
+    transform: translate(24%, -20%);
+}
+
+.ordinal:hover {
+    border: 2px solid #2DE082;
+    transition-duration: 0.4s;
+    color: #24186D;
+}
+
+.ordinal:hover #ordinalnova-2 {
+    fill: #24186D;
+    transition-duration: 0.4s;
+}
+
+#ordinal:checked~label .ordinal {
+    color: #fff;
+    background-color: #2DE082;
+    border-color: #2DE082;
+    border-style: solid;
+    transition-duration: 0.9s;
+}
+
+#ordinal:checked~label #ordinalnova-2 {
+    fill: #fff;
+    transition-duration: 0.9s;
+}
+
+.discreta {
+    float: left;
+    color: #ACA8C1;
+    width: 200px;
+    height: 150px;
+    border-radius: 7px;
+    border: 2px solid #ACA8C1;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    font-family: StatsBold;
+    position: absolute;
+    left: 23.5%;
+    top: 410%;
+    transform: translate(-23.5%, -410%);
+    cursor: pointer;
+}
+
+.discreta svg {
+    width: 35%;
+    position: absolute;
+    left: 24%;
+    top: 20%;
+    transform: translate(24%, -20%);
+}
+
+.discreta:hover {
+    border: 2px solid #2DE082;
+    transition-duration: 0.4s;
+    color: #24186D;
+}
+
+.discreta:hover #discretanova-2 {
+    fill: #24186D;
+    transition-duration: 0.4s;
+}
+
+#discreta:checked~label .discreta {
+    color: #fff;
+    background-color: #2DE082;
+    border-color: #2DE082;
+    border-style: solid;
+    transition-duration: 0.9s;
+}
+
+#discreta:checked~label #discretanova-2 {
+    fill: #fff;
+    transition-duration: 0.9s;
+}
+
+.continua {
+    float: left;
+    color: #ACA8C1;
+    width: 200px;
+    height: 150px;
+    border-radius: 7px;
+    border: 2px solid #ACA8C1;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    font-family: StatsBold;
+    position: absolute;
+    position: absolute;
+    left: 77.9%;
+    top: 410%;
+    transform: translate(-77.9%, -410%);
+    cursor: pointer;
+}
+
+.continua svg {
+    width: 35%;
+    position: absolute;
+    left: 24%;
+    top: 20%;
+    transform: translate(24%, -20%);
+}
+
+.continua:hover {
+    border: 2px solid #2DE082;
+    transition-duration: 0.4s;
+    color: #24186D;
+}
+
+.continua:hover #continuanova-2 {
+    fill: #24186D;
+    transition-duration: 0.4s;
+}
+
+#continua:checked~label .continua {
+    color: #fff;
+    background-color: #2DE082;
+    border-color: #2DE082;
+    border-style: solid;
+    transition-duration: 0.9s;
+}
+
+#continua:checked~label #continuanova-2 {
+    fill: #fff;
+    transition-duration: 0.9s;
+}
+
+.txtNominal {
+    margin-top: 55%;
+    font-size: 17px;
+    text-align: center;
+    font-family: StatsBold;
+}
+
+.txtOrdinal {
+    margin-top: 55%;
+    font-size: 17px;
+    text-align: center;
+    font-family: StatsBold;
+}
+
+.txtDiscreta {
+    margin-top: 55%;
+    font-size: 17px;
+    text-align: center;
+    font-family: StatsBold;
+}
+
+.txtContinua {
+    margin-top: 55%;
+    font-size: 17px;
+    text-align: center;
+    font-family: StatsBold;
+}
+
+.concluir {
+    width: 40%;
+    height: 50px;
+    background-color: #fff;
+    color: #2C293A;
+    border: 3px solid #2DE082;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    font-family: StatsBold;
+    font-size: 15px;
+    position: absolute;
+    left: 50%;
+    top: 200%;
+    transform: translate(-50%, 200%);
+}
+
+.concluir:hover {
+    text-align: center;
+    color: white;
+    background-color: #2DE082;
+    border-radius: 30px;
+}
+
+.txtPrincipal-2 {
+    position: relative;
+    color: #2C293A;
+    font-size: 25px;
+    font-family: StatsBold;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-bottom: 5%;
+}
+
+#salvar {
+    width: 40%;
+    height: 50px;
+    background-color: #fff;
+    color: #2C293A;
+    border: 3px solid #2DE082;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    font-family: StatsBold;
+    font-size: 15px;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, 100%);
+}
+
+#salvar:hover {
+    text-align: center;
+    color: white;
+    background-color: #2DE082;
+    border-radius: 30px;
+}
+
+.table {
+    background-color: #fff;
+    text-align: center;
+    border: solid rgb(211, 209, 221) 1px;
+}
+
+.table th {
+    font-family: StatsBold;
+}
+
+.table td {
+    font-family: StatsRegular;
+}
+
+#grafico {
+    margin-top: 5%;
+}
+
+#opcoes {
+    margin-top: -3%;
+}
+
+@media (min-width: 320px) and (max-width: 419px) {
+    .logo svg {
+        width: 160%;
+    }
+    .fechar svg {
+        width: 90%;
+    }
+    .icone {
+        width: 40px;
+        height: 40px;
+    }
+    .icone .fa-line-chart {
+        font-size: 20px;
+    }
+    .txtPrincipal {
+        margin: auto;
+        text-align: center;
+        font-size: 20px;
+    }
+    .textoPrincipal {
+        margin-top: 15%;
+        width: 100%;
+    }
+    .textoRecomendacao {
+        margin-top: 3%;
+        width: 100%;
+    }
+    .txtRecomendacao {
+        font-size: 16px;
+        margin: auto;
+        text-align: center;
+    }
+    .itensRecomendacao {
+        font-size: 13px;
+        margin: auto;
+        margin-top: 2%;
+        text-align: center;
+        list-style-type: none;
+    }
+    .inputfile+label {
+        margin: auto;
+        width: 220%;
+        height: 50px;
+        font-family: MazzardHSemi;
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        background-color: #2DE082;
+        border-radius: 30px;
+        display: inline-block;
+        font-size: 15px;
+    }
+    .inputfile:focus+label,
+    .inputfile+label:hover {
+        width: 200%;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        line-height: 45px;
+    }
+    .manual {
+        width: 125%;
+        height: 50px;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        font-family: MazzardHSemi;
+        font-size: 15px;
+    }
+    .botoes {
+        margin-top: 10%;
+    }
+    .primeiro-passo {
+        margin: auto;
+        margin-left: 3%;
+        font-size: 16px;
+    }
+    .text-area {
+        margin-top: 5%;
+    }
+    .txtPadrao {
+        font-size: 13px;
+        margin: auto;
+        margin-left: 3%;
+        margin-top: 3%;
+    }
+    div textarea {
+        margin: auto;
+        margin-top: 2%;
+        margin-left: 3%;
+        width: 95%;
+        font-size: 13px;
+        height: 50px;
+    }
+    #opcoes {
+        margin-top: -6%;
+    }
+    .populacao {
+        margin: auto;
+        margin-left: -8%;
+        width: 35%;
+        height: 90px;
+    }
+    .populacao svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40%;
+    }
+    .amostra {
+        margin: auto;
+        margin-left: 8.2%;
+        width: 35%;
+        height: 90px;
+    }
+    .amostra svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40%;
+    }
+    .txtPopulacao {
+        margin-top: 60px;
+        font-size: 15px;
+    }
+    .txtAmostra {
+        margin-top: 60px;
+        font-size: 15px;
+    }
+    .proximo {
+        font-size: 15px;
+    }
+    .segundo-passo {
+        margin: auto;
+        margin-left: 3%;
+        font-size: 15px;
+    }
+    .input-area {
+        margin-top: 5%;
+    }
+    #opcoes-variavel {
+        margin-top: 20%;
+    }
+    .txtVariavel {
+        font-size: 13px;
+        margin: auto;
+        margin-top: 2%;
+        margin-left: 3%;
+        width: 94%;
+    }
+    .nominal {
+        margin: auto;
+        margin-left: -8%;
+        width: 35%;
+        margin-top: -60%;
+        height: 90px;
+    }
+    .nominal svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40px;
+    }
+    .txtNominal {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+    .ordinal {
+        margin: auto;
+        margin-left: 7%;
+        width: 35%;
+        margin-top: -60%;
+        height: 90px;
+    }
+    .ordinal svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40px;
+    }
+    .txtOrdinal {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+    .discreta {
+        margin: auto;
+        margin-left: -8%;
+        width: 35%;
+        margin-top: -115%;
+        height: 90px;
+    }
+    .discreta svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40px;
+    }
+    .txtDiscreta {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+    .continua {
+        margin: auto;
+        margin-left: 7%;
+        width: 35%;
+        margin-top: -115%;
+        height: 90px;
+    }
+    .continua svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40px;
+    }
+    .txtContinua {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+    .concluir {
+        margin-top: -50%;
+        font-size: 13px;
+    }
+    #txtTipoV {
+        margin-top: 10%;
+    }
+    .txtPrincipal-2 {
+        margin: auto;
+        margin-top: 7%;
+        margin-left: 3%;
+        font-size: 15px;
+    }
+    #salvar {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 420px) and (max-width: 519px) {
+    .logo svg {
+        width: 160%;
+    }
+    .fechar svg {
+        width: 80%;
+    }
+    .icone {
+        width: 40px;
+        height: 40px;
+    }
+    .icone .fa-line-chart {
+        font-size: 20px;
+    }
+    .txtPrincipal {
+        margin: auto;
+        text-align: center;
+        font-size: 25px;
+    }
+    .textoPrincipal {
+        margin-top: 15%;
+        width: 100%;
+    }
+    .textoRecomendacao {
+        margin-top: 3%;
+        width: 100%;
+    }
+    .txtRecomendacao {
+        font-size: 17px;
+        margin: auto;
+        text-align: center;
+    }
+    .itensRecomendacao {
+        font-size: 14px;
+        margin: auto;
+        margin-top: 2%;
+        text-align: center;
+        list-style-type: none;
+    }
+    .inputfile+label {
+        margin: auto;
+        width: 260%;
+        height: 50px;
+        font-family: MazzardHSemi;
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        background-color: #2DE082;
+        border-radius: 30px;
+        display: inline-block;
+        font-size: 15px;
+    }
+    .inputfile:focus+label,
+    .inputfile+label:hover {
+        width: 240%;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        line-height: 45px;
+    }
+    .manual {
+        width: 155%;
+        height: 50px;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        font-family: MazzardHSemi;
+        font-size: 15px;
+    }
+    .botoes {
+        margin-top: 10%;
+        margin-left: -1%;
+    }
+    .primeiro-passo {
+        margin: auto;
+        margin-left: 3%;
+        font-size: 18px;
+    }
+    .text-area {
+        margin-top: 5%;
+    }
+    .txtPadrao {
+        font-size: 15px;
+        margin: auto;
+        margin-left: 3%;
+        margin-top: 3%;
+    }
+    div textarea {
+        margin: auto;
+        margin-top: 2%;
+        margin-left: 3%;
+        width: 95%;
+        font-size: 15px;
+        height: 50px;
+    }
+    #opcoes {
+        margin-top: -2%;
+    }
+    .populacao {
+        margin: auto;
+        margin-left: -8%;
+        width: 40%;
+        height: 110px;
+    }
+    .populacao svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 30%;
+    }
+    .amostra {
+        margin: auto;
+        margin-left: 8.2%;
+        width: 40%;
+        height: 110px;
+    }
+    .amostra svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 30%;
+    }
+    .txtPopulacao {
+        margin-top: 70px;
+        font-size: 17px;
+    }
+    .txtAmostra {
+        margin-top: 70px;
+        font-size: 17px;
+    }
+    .proximo {
+        font-size: 15px;
+    }
+    .segundo-passo {
+        margin: auto;
+        margin-left: 3%;
+        font-size: 18px;
+    }
+    .input-area {
+        margin-top: 5%;
+    }
+    #opcoes-variavel {
+        margin-top: 18%;
+    }
+    .txtVariavel {
+        font-size: 15px;
+        margin: auto;
+        margin-top: 2%;
+        margin-left: 3%;
+        width: 94%;
+    }
+    .nominal {
+        margin: auto;
+        margin-left: -8%;
+        width: 40%;
+        margin-top: -58%;
+        height: 100px;
+    }
+    .nominal svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40px;
+    }
+    .txtNominal {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+    .ordinal {
+        margin: auto;
+        margin-left: 7%;
+        width: 40%;
+        margin-top: -58%;
+        height: 100px;
+    }
+    .ordinal svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40px;
+    }
+    .txtOrdinal {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+    .discreta {
+        margin: auto;
+        margin-left: -8%;
+        width: 40%;
+        margin-top: -115%;
+        height: 100px;
+    }
+    .discreta svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40px;
+    }
+    .txtDiscreta {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+    .continua {
+        margin: auto;
+        margin-left: 7%;
+        width: 40%;
+        margin-top: -115%;
+        height: 100px;
+    }
+    .continua svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40px;
+    }
+    .txtContinua {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+    .concluir {
+        margin-top: -50%;
+        font-size: 13px;
+    }
+    #txtTipoV {
+        margin-top: 10%;
+    }
+    .txtPrincipal-2 {
+        margin: auto;
+        margin-top: 7%;
+        margin-left: 3%;
+        font-size: 18px;
+    }
+    #salvar {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 520px) and (max-width: 619px) {
+    .logo svg {
+        width: 160%;
+    }
+    .fechar svg {
+        width: 80%;
+    }
+    .icone {
+        width: 40px;
+        height: 40px;
+    }
+    .icone .fa-line-chart {
+        font-size: 20px;
+    }
+    .txtPrincipal {
+        margin: auto;
+        text-align: center;
+        font-size: 25px;
+    }
+    .textoPrincipal {
+        margin-top: 15%;
+        width: 100%;
+    }
+    .textoRecomendacao {
+        margin-top: 3%;
+        width: 100%;
+    }
+    .txtRecomendacao {
+        font-size: 17px;
+        margin: auto;
+        text-align: center;
+    }
+    .itensRecomendacao {
+        font-size: 14px;
+        margin: auto;
+        margin-top: 2%;
+        text-align: center;
+        list-style-type: none;
+    }
+    .inputfile+label {
+        margin: auto;
+        width: 260%;
+        height: 50px;
+        font-family: MazzardHSemi;
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        background-color: #2DE082;
+        border-radius: 30px;
+        display: inline-block;
+        font-size: 15px;
+    }
+    .inputfile:focus+label,
+    .inputfile+label:hover {
+        width: 240%;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        line-height: 45px;
+    }
+    .manual {
+        width: 155%;
+        height: 50px;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        font-family: MazzardHSemi;
+        font-size: 15px;
+    }
+    .botoes {
+        margin-top: 10%;
+        margin-left: -1%;
+    }
+    .primeiro-passo {
+        margin: auto;
+        margin-left: 3%;
+        font-size: 22px;
+    }
+    .text-area {
+        margin-top: 5%;
+    }
+    .txtPadrao {
+        font-size: 15px;
+        margin: auto;
+        margin-left: 3%;
+        margin-top: 3%;
+    }
+    div textarea {
+        margin: auto;
+        margin-top: 2%;
+        margin-left: 3%;
+        width: 95%;
+        font-size: 15px;
+        height: 50px;
+    }
+    #opcoes {
+        margin-top: -4%;
+    }
+    .populacao {
+        margin: auto;
+        margin-left: -8%;
+        width: 40%;
+        height: 110px;
+    }
+    .populacao svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 30%;
+    }
+    .amostra {
+        margin: auto;
+        margin-left: 8.2%;
+        width: 40%;
+        height: 110px;
+    }
+    .amostra svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 30%;
+    }
+    .txtPopulacao {
+        margin-top: 70px;
+        font-size: 17px;
+    }
+    .txtAmostra {
+        margin-top: 70px;
+        font-size: 17px;
+    }
+    .proximo {
+        font-size: 15px;
+    }
+    .segundo-passo {
+        margin: auto;
+        margin-left: 3%;
+        font-size: 22px;
+    }
+    .input-area {
+        margin-top: 5%;
+    }
+    #opcoes-variavel {
+        margin-top: 18%;
+    }
+    .txtVariavel {
+        font-size: 15px;
+        margin: auto;
+        margin-top: 2%;
+        margin-left: 3%;
+        width: 94%;
+    }
+    .nominal {
+        margin: auto;
+        margin-left: -8%;
+        width: 40%;
+        margin-top: -58%;
+        height: 100px;
+    }
+    .nominal svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40px;
+    }
+    .txtNominal {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+    .ordinal {
+        margin: auto;
+        margin-left: 7%;
+        width: 40%;
+        margin-top: -58%;
+        height: 100px;
+    }
+    .ordinal svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40px;
+    }
+    .txtOrdinal {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+    .discreta {
+        margin: auto;
+        margin-left: -8%;
+        width: 40%;
+        margin-top: -115%;
+        height: 100px;
+    }
+    .discreta svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40px;
+    }
+    .txtDiscreta {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+    .continua {
+        margin: auto;
+        margin-left: 7%;
+        width: 40%;
+        margin-top: -115%;
+        height: 100px;
+    }
+    .continua svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 40px;
+    }
+    .txtContinua {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+    .concluir {
+        margin-top: -50%;
+        font-size: 13px;
+    }
+    #txtTipoV {
+        margin-top: 10%;
+    }
+    .txtPrincipal-2 {
+        margin: auto;
+        margin-top: 7%;
+        margin-left: 3%;
+        font-size: 22px;
+    }
+    #salvar {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 620px) and (max-width: 719px) {
+    .logo svg {
+        width: 100%;
+    }
+    .fechar svg {
+        width: 50%;
+    }
+    .icone {
+        width: 60px;
+        height: 60px;
+    }
+    .icone .fa-line-chart {
+        font-size: 30px;
+    }
+    .txtPrincipal {
+        margin: auto;
+        text-align: center;
+        font-size: 30px;
+    }
+    .textoPrincipal {
+        margin-top: 15%;
+        width: 100%;
+    }
+    .textoRecomendacao {
+        margin-top: 3%;
+        width: 100%;
+    }
+    .txtRecomendacao {
+        font-size: 22px;
+        margin: auto;
+        text-align: center;
+    }
+    .itensRecomendacao {
+        font-size: 19px;
+        margin: auto;
+        margin-top: 2%;
+        text-align: center;
+        list-style-type: none;
+    }
+    .inputfile+label {
+        margin: auto;
+        width: 310%;
+        height: 50px;
+        font-family: MazzardHSemi;
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        background-color: #2DE082;
+        border-radius: 30px;
+        display: inline-block;
+        font-size: 19px;
+    }
+    .inputfile:focus+label,
+    .inputfile+label:hover {
+        width: 290%;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        line-height: 45px;
+    }
+    .manual {
+        width: 175%;
+        height: 50px;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        font-family: MazzardHSemi;
+        font-size: 19px;
+    }
+    .botoes {
+        margin-top: 10%;
+        margin-left: -1%;
+    }
+    .primeiro-passo {
+        margin: auto;
+        margin-left: 3%;
+        font-size: 26px;
+    }
+    .text-area {
+        margin-top: 5%;
+    }
+    .txtPadrao {
+        font-size: 18px;
+        margin: auto;
+        margin-left: 3%;
+        margin-top: 3%;
+    }
+    div textarea {
+        margin: auto;
+        margin-top: 2%;
+        margin-left: 3%;
+        width: 95%;
+        font-size: 15px;
+        height: 70px;
+    }
+    #opcoes {
+        margin-top: -4.5%;
+    }
+    .populacao {
+        margin: auto;
+        margin-left: -9%;
+        width: 40%;
+        height: 130px;
+    }
+    .populacao svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 30%;
+    }
+    .amostra {
+        margin: auto;
+        margin-left: 9%;
+        width: 40%;
+        height: 130px;
+    }
+    .amostra svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 30%;
+    }
+    .txtPopulacao {
+        margin-top: 90px;
+        font-size: 19px;
+    }
+    .txtAmostra {
+        margin-top: 90px;
+        font-size: 19px;
+    }
+    .proximo {
+        font-size: 15px;
+    }
+    .segundo-passo {
+        margin: auto;
+        margin-left: 3%;
+        font-size: 26px;
+    }
+    .input-area {
+        margin-top: 5%;
+    }
+    #opcoes-variavel {
+        margin-top: 17%;
+    }
+    .txtVariavel {
+        font-size: 15px;
+        margin: auto;
+        margin-top: 2%;
+        margin-left: 3%;
+        width: 94%;
+    }
+    .nominal {
+        margin: auto;
+        margin-left: -9%;
+        width: 40%;
+        margin-top: -58%;
+        height: 120px;
+    }
+    .nominal svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 60px;
+    }
+    .txtNominal {
+        margin-top: 70px;
+        font-size: 16px;
+    }
+    .ordinal {
+        margin: auto;
+        margin-left: 9%;
+        width: 40%;
+        margin-top: -58%;
+        height: 120px;
+    }
+    .ordinal svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 60px;
+    }
+    .txtOrdinal {
+        margin-top: 70px;
+        font-size: 16px;
+    }
+    .discreta {
+        margin: auto;
+        margin-left: -9%;
+        width: 40%;
+        margin-top: -118%;
+        height: 120px;
+    }
+    .discreta svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 60px;
+    }
+    .txtDiscreta {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .continua {
+        margin: auto;
+        margin-left: 9%;
+        width: 40%;
+        margin-top: -118%;
+        height: 120px;
+    }
+    .continua svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 60px;
+    }
+    .txtContinua {
+        margin-top: 70px;
+        font-size: 16px;
+    }
+    .concluir {
+        margin-top: -50%;
+        font-size: 16px;
+    }
+    #txtTipoV {
+        margin-top: 10%;
+    }
+    .txtPrincipal-2 {
+        margin: auto;
+        margin-top: 7%;
+        margin-left: 3%;
+        font-size: 26px;
+    }
+    #salvar {
+        font-size: 16px;
+    }
+    #salvar:hover {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 720px) and (max-width: 767px) {
+    .logo svg {
+        width: 100%;
+    }
+    .fechar svg {
+        width: 50%;
+    }
+    .icone {
+        width: 60px;
+        height: 60px;
+    }
+    .icone .fa-line-chart {
+        font-size: 30px;
+    }
+    .txtPrincipal {
+        margin: auto;
+        text-align: center;
+        font-size: 30px;
+    }
+    .textoPrincipal {
+        margin-top: 15%;
+        width: 100%;
+    }
+    .textoRecomendacao {
+        margin-top: 3%;
+        width: 100%;
+    }
+    .txtRecomendacao {
+        font-size: 22px;
+        margin: auto;
+        text-align: center;
+    }
+    .itensRecomendacao {
+        font-size: 19px;
+        margin: auto;
+        margin-top: 2%;
+        text-align: center;
+        list-style-type: none;
+    }
+    .inputfile+label {
+        margin: auto;
+        width: 310%;
+        height: 50px;
+        font-family: MazzardHSemi;
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        background-color: #2DE082;
+        border-radius: 30px;
+        display: inline-block;
+        font-size: 19px;
+    }
+    .inputfile:focus+label,
+    .inputfile+label:hover {
+        width: 290%;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        line-height: 45px;
+    }
+    .manual {
+        width: 175%;
+        height: 50px;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        font-family: MazzardHSemi;
+        font-size: 19px;
+    }
+    .botoes {
+        margin-top: 10%;
+        margin-left: -1%;
+    }
+    .primeiro-passo {
+        margin: auto;
+        margin-left: 3%;
+        font-size: 26px;
+    }
+    .text-area {
+        margin-top: 5%;
+    }
+    .txtPadrao {
+        font-size: 18px;
+        margin: auto;
+        margin-left: 3%;
+        margin-top: 3%;
+    }
+    div textarea {
+        margin: auto;
+        margin-top: 2%;
+        margin-left: 3%;
+        width: 95%;
+        font-size: 15px;
+        height: 70px;
+    }
+    #opcoes {
+        margin-top: -4.5%;
+    }
+    .populacao {
+        margin: auto;
+        margin-left: -9%;
+        width: 40%;
+        height: 130px;
+    }
+    .populacao svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 30%;
+    }
+    .amostra {
+        margin: auto;
+        margin-left: 9%;
+        width: 40%;
+        height: 130px;
+    }
+    .amostra svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 30%;
+    }
+    .txtPopulacao {
+        margin-top: 90px;
+        font-size: 19px;
+    }
+    .txtAmostra {
+        margin-top: 90px;
+        font-size: 19px;
+    }
+    .proximo {
+        font-size: 15px;
+    }
+    .segundo-passo {
+        margin: auto;
+        margin-left: 3%;
+        font-size: 26px;
+    }
+    .input-area {
+        margin-top: 5%;
+    }
+    #opcoes-variavel {
+        margin-top: 17%;
+    }
+    .txtVariavel {
+        font-size: 15px;
+        margin: auto;
+        margin-top: 2%;
+        margin-left: 3%;
+        width: 94%;
+    }
+    .nominal {
+        margin: auto;
+        margin-left: -9%;
+        width: 40%;
+        margin-top: -58%;
+        height: 120px;
+    }
+    .nominal svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 60px;
+    }
+    .txtNominal {
+        margin-top: 70px;
+        font-size: 16px;
+    }
+    .ordinal {
+        margin: auto;
+        margin-left: 9%;
+        width: 40%;
+        margin-top: -58%;
+        height: 120px;
+    }
+    .ordinal svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 60px;
+    }
+    .txtOrdinal {
+        margin-top: 70px;
+        font-size: 16px;
+    }
+    .discreta {
+        margin: auto;
+        margin-left: -9%;
+        width: 40%;
+        margin-top: -118%;
+        height: 120px;
+    }
+    .discreta svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 60px;
+    }
+    .txtDiscreta {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .continua {
+        margin: auto;
+        margin-left: 9%;
+        width: 40%;
+        margin-top: -118%;
+        height: 120px;
+    }
+    .continua svg {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        width: 60px;
+    }
+    .txtContinua {
+        margin-top: 70px;
+        font-size: 16px;
+    }
+    .concluir {
+        margin-top: -50%;
+        font-size: 16px;
+    }
+    #txtTipoV {
+        margin-top: 10%;
+    }
+    .txtPrincipal-2 {
+        margin: auto;
+        margin-top: 7%;
+        margin-left: 3%;
+        font-size: 26px;
+    }
+    #salvar {
+        font-size: 16px;
+    }
+    #salvar:hover {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 867px) {
+    .logo svg {
+        width: 80px;
+    }
+    .fechar svg {
+        width: 30px;
+    }
+    .icone {
+        width: 55px;
+        height: 55px;
+    }
+    .textoPrincipal {
+        margin-top: 20%;
+    }
+    .txtPrincipal {
+        margin: auto;
+        font-size: 25px;
+        text-align: center;
+    }
+    .txtRecomendacao {
+        margin: auto;
+        text-align: center;
+        font-size: 17px;
+    }
+    .itensRecomendacao {
+        margin: auto;
+        list-style-type: none;
+        font-size: 14px;
+        text-align: center;
+    }
+    .inputfile+label {
+        margin: auto;
+        width: 230%;
+        height: 50px;
+        font-family: MazzardHSemi;
+        font-size: 17px;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        background-color: #2DE082;
+        border-radius: 30px;
+        display: inline-block;
+    }
+    .inputfile:focus+label,
+    .inputfile+label:hover {
+        width: 220%;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        line-height: 45px;
+    }
+    .manual {
+        width: 130%;
+        font-size: 17px;
+    }
+    .primeiro-passo {
+        margin: auto;
+        font-size: 19px;
+    }
+    .txtPadrao {
+        margin: auto;
+        margin-top: 5%;
+        font-size: 15px;
+    }
+    div textarea {
+        margin: auto;
+        margin-top: 3%;
+        width: 100%;
+        font-size: 15px;
+    }
+    .populacao {
+        margin: auto;
+        margin-top: -3%;
+        margin-left: -11%;
+        width: 140px;
+        height: 120px;
+    }
+    .amostra {
+        margin: auto;
+        margin-top: -3%;
+        margin-left: 11%;
+        width: 140px;
+        height: 120px;
+    }
+    .txtPopulacao {
+        margin-top: 80px;
+        font-size: 15px;
+    }
+    .txtAmostra {
+        margin-top: 80px;
+        font-size: 15px;
+    }
+    .proximo {
+        font-size: 15px;
+    }
+    .segundo-passo {
+        margin: auto;
+        font-size: 18px;
+    }
+    .txtVariavel {
+        margin: auto;
+        margin-top: 3%;
+        width: 100%;
+        font-size: 15px;
+    }
+    .nominal {
+        margin: auto;
+        margin-top: -2%;
+        margin-left: -11%;
+        width: 140px;
+        height: 120px;
+    }
+    .ordinal {
+        margin: auto;
+        margin-top: -2%;
+        margin-left: 11%;
+        width: 140px;
+        height: 120px;
+    }
+    .txtNominal {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .txtOrdinal {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .discreta {
+        margin: auto;
+        margin-top: -2%;
+        margin-left: -11%;
+        width: 140px;
+        height: 120px;
+    }
+    .continua {
+        margin: auto;
+        margin-top: -2%;
+        margin-left: 11%;
+        width: 140px;
+        height: 120px;
+    }
+    .txtDiscreta {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .txtContinua {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .concluir {
+        font-size: 15px;
+    }
+    #salvar {
+        font-size: 15px;
+    }
+    #salvar:hover {
+        font-size: 15px;
+    }
+    .txtPrincipal-2 {
+        margin: auto;
+        margin-top: 5%;
+        font-size: 19px;
+    }
+}
+
+@media (min-width: 868px) and (max-width: 967px) {
+    .logo svg {
+        width: 80px;
+    }
+    .fechar svg {
+        width: 30px;
+    }
+    .icone {
+        width: 55px;
+        height: 55px;
+    }
+    .textoPrincipal {
+        margin-top: 20%;
+    }
+    .txtPrincipal {
+        margin: auto;
+        font-size: 28px;
+        text-align: center;
+    }
+    .txtRecomendacao {
+        margin: auto;
+        text-align: center;
+        font-size: 18px;
+        margin-top: 3%;
+    }
+    .itensRecomendacao {
+        margin: auto;
+        list-style-type: none;
+        font-size: 14px;
+        text-align: center;
+    }
+    .inputfile+label {
+        margin: auto;
+        width: 230%;
+        height: 50px;
+        font-family: MazzardHSemi;
+        font-size: 17px;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        background-color: #2DE082;
+        border-radius: 30px;
+        display: inline-block;
+    }
+    .inputfile:focus+label,
+    .inputfile+label:hover {
+        width: 220%;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        line-height: 45px;
+    }
+    .manual {
+        width: 130%;
+        font-size: 17px;
+    }
+    .primeiro-passo {
+        margin: auto;
+        font-size: 22px;
+    }
+    .txtPadrao {
+        margin: auto;
+        margin-top: 5%;
+        font-size: 17px;
+    }
+    div textarea {
+        margin: auto;
+        margin-top: 3%;
+        width: 100%;
+        font-size: 17px;
+    }
+    .populacao {
+        margin: auto;
+        margin-top: -3%;
+        margin-left: -11.5%;
+        width: 180px;
+        height: 120px;
+    }
+    .amostra {
+        margin: auto;
+        margin-top: -3%;
+        margin-left: 11%;
+        width: 180px;
+        height: 120px;
+    }
+    .txtPopulacao {
+        margin-top: 85px;
+        font-size: 17px;
+    }
+    .txtAmostra {
+        margin-top: 85px;
+        font-size: 17px;
+    }
+    .proximo {
+        font-size: 17px;
+    }
+    .segundo-passo {
+        margin: auto;
+        font-size: 22px;
+    }
+    .txtVariavel {
+        margin: auto;
+        margin-top: 3%;
+        width: 100%;
+        font-size: 17px;
+    }
+    .nominal {
+        margin: auto;
+        margin-top: -8%;
+        margin-left: -11.5%;
+        width: 180px;
+        height: 120px;
+    }
+    .ordinal {
+        margin: auto;
+        margin-top: -8%;
+        margin-left: 11%;
+        width: 180px;
+        height: 120px;
+    }
+    .txtNominal {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .txtOrdinal {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .discreta {
+        margin: auto;
+        margin-top: -19%;
+        margin-left: -11.5%;
+        width: 180px;
+        height: 120px;
+    }
+    .continua {
+        margin: auto;
+        margin-top: -19%;
+        margin-left: 11%;
+        width: 180px;
+        height: 120px;
+    }
+    .txtDiscreta {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .txtContinua {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .concluir {
+        font-size: 17px;
+    }
+    #salvar {
+        font-size: 17px;
+    }
+    #salvar:hover {
+        font-size: 17px;
+    }
+    .txtPrincipal-2 {
+        margin: auto;
+        margin-top: 5%;
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 968px) and (max-width: 1067px) {
+    .logo svg {
+        width: 80px;
+    }
+    .fechar svg {
+        width: 30px;
+    }
+    .icone {
+        width: 55px;
+        height: 55px;
+    }
+    .textoPrincipal {
+        margin-top: 20%;
+    }
+    .txtPrincipal {
+        margin: auto;
+        font-size: 28px;
+        text-align: center;
+    }
+    .txtRecomendacao {
+        margin: auto;
+        text-align: center;
+        font-size: 18px;
+        margin-top: 3%;
+    }
+    .itensRecomendacao {
+        margin: auto;
+        list-style-type: none;
+        font-size: 14px;
+        text-align: center;
+    }
+    .inputfile+label {
+        margin: auto;
+        width: 230%;
+        height: 50px;
+        font-family: MazzardHSemi;
+        font-size: 17px;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        background-color: #2DE082;
+        border-radius: 30px;
+        display: inline-block;
+    }
+    .inputfile:focus+label,
+    .inputfile+label:hover {
+        width: 220%;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        line-height: 45px;
+    }
+    .manual {
+        width: 130%;
+        font-size: 17px;
+    }
+    .primeiro-passo {
+        margin: auto;
+        font-size: 22px;
+    }
+    .txtPadrao {
+        margin: auto;
+        margin-top: 5%;
+        font-size: 17px;
+    }
+    div textarea {
+        margin: auto;
+        margin-top: 3%;
+        width: 100%;
+        font-size: 17px;
+    }
+    .populacao {
+        margin: auto;
+        margin-top: -3%;
+        margin-left: -11.5%;
+        width: 180px;
+        height: 120px;
+    }
+    .amostra {
+        margin: auto;
+        margin-top: -3%;
+        margin-left: 11%;
+        width: 180px;
+        height: 120px;
+    }
+    .txtPopulacao {
+        margin-top: 85px;
+        font-size: 17px;
+    }
+    .txtAmostra {
+        margin-top: 85px;
+        font-size: 17px;
+    }
+    .proximo {
+        font-size: 17px;
+    }
+    .segundo-passo {
+        margin: auto;
+        font-size: 22px;
+    }
+    .txtVariavel {
+        margin: auto;
+        margin-top: 3%;
+        width: 100%;
+        font-size: 17px;
+    }
+    .nominal {
+        margin: auto;
+        margin-top: -8%;
+        margin-left: -11.5%;
+        width: 180px;
+        height: 120px;
+    }
+    .ordinal {
+        margin: auto;
+        margin-top: -8%;
+        margin-left: 11%;
+        width: 180px;
+        height: 120px;
+    }
+    .txtNominal {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .txtOrdinal {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .discreta {
+        margin: auto;
+        margin-top: -19%;
+        margin-left: -11.5%;
+        width: 180px;
+        height: 120px;
+    }
+    .continua {
+        margin: auto;
+        margin-top: -19%;
+        margin-left: 11%;
+        width: 180px;
+        height: 120px;
+    }
+    .txtDiscreta {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .txtContinua {
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    .concluir {
+        font-size: 17px;
+    }
+    #salvar {
+        font-size: 17px;
+    }
+    #salvar:hover {
+        font-size: 17px;
+    }
+    .txtPrincipal-2 {
+        margin: auto;
+        margin-top: 5%;
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 1068px) and (max-width: 1167px) {
+    .logo svg {
+        width: 80px;
+    }
+    .fechar svg {
+        width: 30px;
+    }
+    .icone {
+        width: 55px;
+        height: 55px;
+    }
+    .textoPrincipal {
+        margin-top: 15%;
+    }
+    .txtPrincipal {
+        margin: auto;
+        font-size: 34px;
+        text-align: center;
+    }
+    .txtRecomendacao {
+        margin: auto;
+        text-align: center;
+        font-size: 22px;
+        margin-top: 3%;
+    }
+    .itensRecomendacao {
+        margin: auto;
+        list-style-type: none;
+        font-size: 17px;
+        text-align: center;
+    }
+    .inputfile+label {
+        margin: auto;
+        width: 260%;
+        height: 50px;
+        font-family: MazzardHSemi;
+        font-size: 17px;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        background-color: #2DE082;
+        border-radius: 30px;
+        display: inline-block;
+    }
+    .inputfile:focus+label,
+    .inputfile+label:hover {
+        width: 240%;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        line-height: 45px;
+    }
+    .manual {
+        width: 160%;
+        font-size: 17px;
+    }
+    .primeiro-passo {
+        margin: auto;
+        font-size: 26px;
+    }
+    .txtPadrao {
+        margin: auto;
+        margin-top: 5%;
+        font-size: 19px;
+    }
+    div textarea {
+        margin: auto;
+        margin-top: 3%;
+        width: 100%;
+        font-size: 19px;
+    }
+    .populacao {
+        margin: auto;
+        margin-top: 1%;
+        margin-left: -11%;
+        width: 220px;
+        height: 150px;
+    }
+    .amostra {
+        margin: auto;
+        margin-top: 1%;
+        margin-left: 11%;
+        width: 220px;
+        height: 150px;
+    }
+    .txtPopulacao {
+        margin-top: 105px;
+        font-size: 19px;
+    }
+    .txtAmostra {
+        margin-top: 105px;
+        font-size: 19px;
+    }
+    .proximo {
+        font-size: 19px;
+    }
+    .segundo-passo {
+        margin: auto;
+        font-size: 26px;
+    }
+    .txtVariavel {
+        margin: auto;
+        margin-top: 3%;
+        width: 100%;
+        font-size: 19px;
+    }
+    .nominal {
+        margin: auto;
+        margin-top: -2%;
+        margin-left: -11.3%;
+        width: 250px;
+        height: 150px;
+    }
+    .ordinal {
+        margin: auto;
+        margin-top: -2%;
+        margin-left: 10.5%;
+        width: 250px;
+        height: 150px;
+    }
+    .txtNominal {
+        margin-top: 95px;
+        font-size: 17px;
+    }
+    .txtOrdinal {
+        margin-top: 95px;
+        font-size: 17px;
+    }
+    .discreta {
+        margin: auto;
+        margin-top: -8%;
+        margin-left: -11.3%;
+        width: 250px;
+        height: 150px;
+    }
+    .continua {
+        margin: auto;
+        margin-top: -8%;
+        margin-left: 10.5%;
+        width: 250px;
+        height: 150px;
+    }
+    .txtDiscreta {
+        margin-top: 95px;
+        font-size: 17px;
+    }
+    .txtContinua {
+        margin-top: 95px;
+        font-size: 17px;
+    }
+    .concluir {
+        font-size: 19px;
+    }
+    #salvar {
+        font-size: 17px;
+    }
+    #salvar:hover {
+        font-size: 17px;
+    }
+    .txtPrincipal-2 {
+        margin: auto;
+        margin-top: 5%;
+        font-size: 26px;
+    }
+}
+
+@media (min-width: 1168px) and (max-width: 1267px) {
+    .logo svg {
+        width: 80px;
+    }
+    .fechar svg {
+        width: 30px;
+    }
+    .icone {
+        width: 55px;
+        height: 55px;
+    }
+    .textoPrincipal {
+        margin-top: 15%;
+    }
+    .txtPrincipal {
+        margin: auto;
+        font-size: 34px;
+        text-align: center;
+    }
+    .txtRecomendacao {
+        margin: auto;
+        text-align: center;
+        font-size: 22px;
+        margin-top: 3%;
+    }
+    .itensRecomendacao {
+        margin: auto;
+        list-style-type: none;
+        font-size: 17px;
+        text-align: center;
+    }
+    .inputfile+label {
+        margin: auto;
+        width: 260%;
+        height: 50px;
+        font-family: MazzardHSemi;
+        font-size: 17px;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        background-color: #2DE082;
+        border-radius: 30px;
+        display: inline-block;
+    }
+    .inputfile:focus+label,
+    .inputfile+label:hover {
+        width: 240%;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        line-height: 45px;
+    }
+    .manual {
+        width: 160%;
+        font-size: 17px;
+    }
+    .primeiro-passo {
+        margin: auto;
+        font-size: 29px;
+    }
+    .txtPadrao {
+        margin: auto;
+        margin-top: 5%;
+        font-size: 19px;
+    }
+    div textarea {
+        margin: auto;
+        margin-top: 3%;
+        width: 100%;
+        font-size: 19px;
+    }
+    .populacao {
+        margin: auto;
+        margin-top: 1%;
+        margin-left: -11%;
+        width: 250px;
+        height: 150px;
+    }
+    .amostra {
+        margin: auto;
+        margin-top: 1%;
+        margin-left: 11%;
+        width: 250px;
+        height: 150px;
+    }
+    .txtPopulacao {
+        margin-top: 115px;
+        font-size: 19px;
+    }
+    .txtAmostra {
+        margin-top: 115px;
+        font-size: 19px;
+    }
+    .proximo {
+        font-size: 19px;
+    }
+    .segundo-passo {
+        margin: auto;
+        font-size: 29px;
+    }
+    .txtVariavel {
+        margin: auto;
+        margin-top: 3%;
+        width: 100%;
+        font-size: 19px;
+    }
+    .nominal {
+        margin: auto;
+        margin-top: -2%;
+        margin-left: -11.3%;
+        width: 250px;
+        height: 150px;
+    }
+    .ordinal {
+        margin: auto;
+        margin-top: -2%;
+        margin-left: 10.5%;
+        width: 250px;
+        height: 150px;
+    }
+    .txtNominal {
+        margin-top: 95px;
+        font-size: 17px;
+    }
+    .txtOrdinal {
+        margin-top: 95px;
+        font-size: 17px;
+    }
+    .discreta {
+        margin: auto;
+        margin-top: -8%;
+        margin-left: -11.3%;
+        width: 250px;
+        height: 150px;
+    }
+    .continua {
+        margin: auto;
+        margin-top: -8%;
+        margin-left: 10.5%;
+        width: 250px;
+        height: 150px;
+    }
+    .txtDiscreta {
+        margin-top: 95px;
+        font-size: 17px;
+    }
+    .txtContinua {
+        margin-top: 95px;
+        font-size: 17px;
+    }
+    .concluir {
+        font-size: 19px;
+    }
+    #salvar {
+        font-size: 17px;
+    }
+    #salvar:hover {
+        font-size: 17px;
+    }
+    .txtPrincipal-2 {
+        margin: auto;
+        margin-top: 5%;
+        font-size: 29px;
+    }
+}
+
+@media (min-width: 1268px) and (max-width: 1357px) {
+    .logo svg {
+        width: 80px;
+    }
+    .fechar svg {
+        width: 30px;
+    }
+    .icone {
+        width: 55px;
+        height: 55px;
+    }
+    .textoPrincipal {
+        margin-top: 15%;
+    }
+    .txtPrincipal {
+        margin: auto;
+        font-size: 34px;
+        text-align: center;
+    }
+    .txtRecomendacao {
+        margin: auto;
+        text-align: center;
+        font-size: 22px;
+        margin-top: 3%;
+    }
+    .itensRecomendacao {
+        margin: auto;
+        list-style-type: none;
+        font-size: 17px;
+        text-align: center;
+    }
+    .inputfile+label {
+        margin: auto;
+        width: 260%;
+        height: 50px;
+        font-family: MazzardHSemi;
+        font-size: 17px;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        background-color: #2DE082;
+        border-radius: 30px;
+        display: inline-block;
+    }
+    .inputfile:focus+label,
+    .inputfile+label:hover {
+        width: 240%;
+        background-color: #fff;
+        color: #2C293A;
+        border: 3px solid #2DE082;
+        border-radius: 30px;
+        transition-duration: 0.4s;
+        line-height: 45px;
+    }
+    .manual {
+        width: 160%;
+        font-size: 17px;
+    }
+    .primeiro-passo {
+        margin: auto;
+        font-size: 29px;
+    }
+    .txtPadrao {
+        margin: auto;
+        margin-top: 5%;
+        font-size: 19px;
+    }
+    div textarea {
+        margin: auto;
+        margin-top: 3%;
+        width: 100%;
+        font-size: 19px;
+    }
+    .populacao {
+        margin: auto;
+        margin-top: 1%;
+        margin-left: -11%;
+        width: 250px;
+        height: 150px;
+    }
+    .amostra {
+        margin: auto;
+        margin-top: 1%;
+        margin-left: 11%;
+        width: 250px;
+        height: 150px;
+    }
+    .txtPopulacao {
+        margin-top: 115px;
+        font-size: 19px;
+    }
+    .txtAmostra {
+        margin-top: 115px;
+        font-size: 19px;
+    }
+    .proximo {
+        font-size: 19px;
+    }
+    .segundo-passo {
+        margin: auto;
+        font-size: 29px;
+    }
+    .txtVariavel {
+        margin: auto;
+        margin-top: 3%;
+        width: 100%;
+        font-size: 19px;
+    }
+    .nominal {
+        margin: auto;
+        margin-top: -2%;
+        margin-left: -11.3%;
+        width: 250px;
+        height: 150px;
+    }
+    .ordinal {
+        margin: auto;
+        margin-top: -2%;
+        margin-left: 10.5%;
+        width: 250px;
+        height: 150px;
+    }
+    .txtNominal {
+        margin-top: 95px;
+        font-size: 17px;
+    }
+    .txtOrdinal {
+        margin-top: 95px;
+        font-size: 17px;
+    }
+    .discreta {
+        margin: auto;
+        margin-top: -8%;
+        margin-left: -11.3%;
+        width: 250px;
+        height: 150px;
+    }
+    .continua {
+        margin: auto;
+        margin-top: -8%;
+        margin-left: 10.5%;
+        width: 250px;
+        height: 150px;
+    }
+    .txtDiscreta {
+        margin-top: 95px;
+        font-size: 17px;
+    }
+    .txtContinua {
+        margin-top: 95px;
+        font-size: 17px;
+    }
+    .concluir {
+        font-size: 19px;
+    }
+    #salvar {
+        font-size: 17px;
+    }
+    #salvar:hover {
+        font-size: 17px;
+    }
+    .txtPrincipal-2 {
+        margin: auto;
+        margin-top: 5%;
+        font-size: 29px;
+    }
+}

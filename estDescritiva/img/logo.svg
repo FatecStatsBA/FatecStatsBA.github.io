@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <clipPath id="clip-logo">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="logo" clip-path="url(#clip-logo)">
+    <text id="stats" transform="translate(34 794)" fill="#24186d" font-size="842" font-family="SemplicitaPro-Bold, SemplicitaPro" font-weight="700"><tspan x="0" y="0">stats</tspan></text>
+    <rect id="Retângulo_1" data-name="Retângulo 1" width="357" height="88" transform="translate(1527 218)" fill="#00e48b"/>
+  </g>
+</svg>

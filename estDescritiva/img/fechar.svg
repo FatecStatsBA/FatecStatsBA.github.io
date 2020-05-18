@@ -1,0 +1,14 @@
+<svg viewBox="0 0 557 557">
+  <defs>
+    <clipPath id="clip-fechar">
+      <rect width="557" height="557"/>
+    </clipPath>
+  </defs>
+  <g id="fechar" clip-path="url(#clip-fechar)">
+    <g id="Retângulo_1" data-name="Retângulo 1" transform="translate(6 7)" fill="#fff" stroke="#c0bcd5" stroke-width="30">
+      <rect width="545" height="545" rx="55" stroke="none"/>
+      <rect x="15" y="15" width="515" height="515" rx="40" fill="none"/>
+    </g>
+    <path id="close" d="M413.348,24.354,388.994,0,206.674,182.32,24.354,0,0,24.354l182.32,182.32L0,388.994l24.354,24.354,182.32-182.32,182.32,182.32,24.354-24.354-182.32-182.32Z" transform="translate(71 72)" fill="#c0bcd5"/>
+  </g>
+</svg>

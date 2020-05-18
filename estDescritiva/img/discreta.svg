@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="545" height="548" viewBox="0 0 545 548">
+  <defs>
+    <clipPath id="clip-discreta">
+      <rect width="545" height="548"/>
+    </clipPath>
+  </defs>
+  <g id="discreta" clip-path="url(#clip-discreta)">
+    <g id="diagrama" transform="translate(32.997 34.001)">
+      <g id="Grupo_2" data-name="Grupo 2">
+        <g id="Grupo_1" data-name="Grupo 1">
+          <rect id="Retângulo_1" data-name="Retângulo 1" width="104" height="16" transform="translate(40.003 48.006)" fill="#aca8c1"/>
+        </g>
+      </g>
+      <g id="Grupo_4" data-name="Grupo 4">
+        <g id="Grupo_3" data-name="Grupo 3">
+          <rect id="Retângulo_2" data-name="Retângulo 2" width="104" height="16" transform="translate(40.003 80.006)" fill="#aca8c1"/>
+        </g>
+      </g>
+      <g id="Grupo_6" data-name="Grupo 6">
+        <g id="Grupo_5" data-name="Grupo 5">
+          <rect id="Retângulo_3" data-name="Retângulo 3" width="72" height="16" transform="translate(40.003 112.006)" fill="#aca8c1"/>
+        </g>
+      </g>
+      <g id="Grupo_8" data-name="Grupo 8">
+        <g id="Grupo_7" data-name="Grupo 7">
+          <rect id="Retângulo_4" data-name="Retângulo 4" width="72" height="16" transform="translate(40.003 144.006)" fill="#aca8c1"/>
+        </g>
+      </g>
+      <g id="Grupo_10" data-name="Grupo 10">
+        <g id="Grupo_9" data-name="Grupo 9">
+          <rect id="Retângulo_5" data-name="Retângulo 5" width="480" height="16" transform="translate(0.003 464.006)" fill="#aca8c1"/>
+        </g>
+      </g>
+      <g id="Grupo_12" data-name="Grupo 12">
+        <g id="Grupo_11" data-name="Grupo 11">
+          <path id="Caminho_16" data-name="Caminho 16" d="M463.163,68.43l-32-64A8,8,0,0,0,420.433.843l-.006,0-64,32a8,8,0,1,0,7.152,14.32l46.352-23.16L397.283,60.118A426.918,426.918,0,0,1,31.323,344.006l1.36,16A442.926,442.926,0,0,0,412.395,65.4l12.912-36.9,23.536,47.08a8,8,0,0,0,14.32-7.152Z" fill="#aca8c1"/>
+        </g>
+      </g>
+      <g id="Grupo_14" data-name="Grupo 14">
+        <g id="Grupo_13" data-name="Grupo 13">
+          <path id="Caminho_17" data-name="Caminho 17" d="M96,384.006H40a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8v-48A8,8,0,0,0,96,384.006Zm-8,48H48v-32H88Z" fill="#aca8c1"/>
+        </g>
+      </g>
+      <g id="Grupo_16" data-name="Grupo 16">
+        <g id="Grupo_15" data-name="Grupo 15">
+          <path id="Caminho_18" data-name="Caminho 18" d="M184,360.006H128a8,8,0,0,0-8,8v72a8,8,0,0,0,8,8h56a8,8,0,0,0,8-8v-72A8,8,0,0,0,184,360.006Zm-8,72H136v-56h40Z" fill="#aca8c1"/>
+        </g>
+      </g>
+      <g id="Grupo_18" data-name="Grupo 18">
+        <g id="Grupo_17" data-name="Grupo 17">
+          <path id="Caminho_19" data-name="Caminho 19" d="M272,320.006H216a8,8,0,0,0-8,8v112a8,8,0,0,0,8,8h56a8,8,0,0,0,8-8v-112A8,8,0,0,0,272,320.006Zm-8,112H224v-96h40Z" fill="#aca8c1"/>
+        </g>
+      </g>
+      <g id="Grupo_20" data-name="Grupo 20">
+        <g id="Grupo_19" data-name="Grupo 19">
+          <path id="Caminho_20" data-name="Caminho 20" d="M360,264.006H304a8,8,0,0,0-8,8v168a8,8,0,0,0,8,8h56a8,8,0,0,0,8-8v-168A8,8,0,0,0,360,264.006Zm-8,168H312v-152h40Z" fill="#aca8c1"/>
+        </g>
+      </g>
+      <g id="Grupo_22" data-name="Grupo 22">
+        <g id="Grupo_21" data-name="Grupo 21">
+          <path id="Caminho_21" data-name="Caminho 21" d="M448,152.006H392a8,8,0,0,0-8,8v280a8,8,0,0,0,8,8h56a8,8,0,0,0,8-8v-280A8,8,0,0,0,448,152.006Zm-8,280H400v-264h40Z" fill="#aca8c1"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

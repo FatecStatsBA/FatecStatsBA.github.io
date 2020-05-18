@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/FileSaver.js"></script>
+    <script src="js/xlsx.mini.flow.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <title>Estátistica descritiva</title>
+</head>
+
+<body>
+    <section class="nav-bar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 md-auto">
+                    <div class="logo">
+                        <svg viewBox="0 0 1920 1080">
+                            <defs>
+                                <clipPath id="clip-logo">
+                                    <rect width="1920" height="1080" />
+                                </clipPath>
+                            </defs>
+                            <g id="logo" clip-path="url(#clip-logo)">
+                                <text id="stats" transform="translate(34 794)" fill="#24186d" font-size="842"
+                                    font-family="css/fonts/SemplicitaPro-Bold" font-weight="700">
+                                    <tspan x="0" y="0">stats</tspan>
+                                </text>
+                                <rect id="Retângulo_1" data-name="Retângulo 1" width="357" height="88"
+                                    transform="translate(1527 218)" fill="#00e48b" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="fechar ml-auto">
+                        <svg viewBox="0 0 557 557">
+                            <defs>
+                                <clipPath id="clip-fechar">
+                                    <rect width="557" height="557" />
+                                </clipPath>
+                            </defs>
+                            <g id="fechar" clip-path="url(#clip-fechar)">
+                                <g id="Retângulo_1" data-name="Retângulo 1" transform="translate(6 7)" fill="#fff"
+                                    stroke="#c0bcd5" stroke-width="30">
+                                    <rect width="545" height="545" rx="55" stroke="none" />
+                                    <rect x="15" y="15" width="515" height="515" rx="40" fill="none" />
+                                </g>
+                                <path id="close"
+                                    d="M413.348,24.354,388.994,0,206.674,182.32,24.354,0,0,24.354l182.32,182.32L0,388.994l24.354,24.354,182.32-182.32,182.32,182.32,24.354-24.354-182.32-182.32Z"
+                                    transform="translate(71 72)" fill="#c0bcd5" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </section>
+    <section class="primeira-parte">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="icone">
+                        <i class="fa fa-line-chart fa-2x" aria-hidden="true"></i>
+                    </div>
+                    <div class="moverTextos">
+                        <div class="textoPrincipal">
+                            <h1 class="txtPrincipal">
+                                Bem-vindx a estátistica descritiva, preencha os dados manualmente<br> ou faça upload dos
+                                seus arquivos.
+                            </h1>
+                        </div>
+                        <div class="textoRecomendacao">
+                            <h5 class="txtRecomendacao">
+                                Algumas de nossas recomendações:
+                            </h5>
+                        </div>
+                        <ul class="itensRecomendacao">
+                            <li>Preencha todos os campos.</li>
+                            <li>Selecione todas as opções.</li>
+                            <li>Importe somente arquivos de Excel.</li>
+                        </ul>
+                    </div>
+                    <div class="botoes">
+                        <div class="upload">
+                            <input href="#" type="file" id="input-excel" class="inputfile" onclick="toggle(true)">
+                            <label for="input-excel">Importar</label>
+                        </div>
+                        <div class="manualmente">
+                            <button class="manual" id="manual">Manualmente</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </section>
+    <section class="segunda-parte" style="display: none;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="texto-primeiro">
+                        <h1 class="primeiro-passo">
+                            Este é o primeiro passo, preencha o<br> campo e selecione a opção desejada.
+                        </h1>
+                    </div>
+                    <div class="text-area">
+                        <h5 class="txtPadrao">Entre com os dados desejados.</h5>
+                        <textarea type="text" name='txtDado' id="txtDado"
+                            placeholder="Separe os dados com ponto e virgula, por favor."></textarea>
+                    </div>
+                    <h5 class="txtPadrao" id='txtTipoP'>Escolha o tipo da pesquisa.</h5>
+                    <div id="opcoes">
+                        <input type="radio" id="populacao" name='pa' style="display: none;" />
+                        <label class="check" for="populacao">
+                            <div class="populacao">
+                                <svg viewBox="0 0 7447 7024">
+                                    <defs>
+                                        <clipPath id="clip-populaçãonova">
+                                            <rect width="7447" height="7024" />
+                                        </clipPath>
+                                    </defs>
+                                    <g id="populaçãonova" clip-path="url(#clip-populaçãonova)">
+                                        <path id="pessoas"
+                                            d="M5781.782,4806.242h1.708V2990.551h320.416a106.776,106.776,0,0,0,106.806-106.805V2136.108c0-294.463-239.564-534.027-534.027-534.027H5619.01c101.892-113.534,164.48-262.955,164.48-427.222,0-353.419-287.413-640.832-640.833-640.832s-640.832,287.413-640.832,640.832c0,164.267,62.587,313.687,164.48,427.222h-57.675c-120.69,0-230.914,41.761-320.417,109.582V1602.081c0-294.463-239.565-534.027-534.027-534.027h-57.675c101.892-113.534,164.48-262.955,164.48-427.222C3860.994,287.413,3573.58,0,3220.161,0s-640.832,287.413-640.832,640.832c0,164.267,62.588,313.687,164.48,427.222h-57.675c-294.462,0-534.027,239.564-534.027,534.027v109.582c-89.5-67.821-199.726-109.582-320.416-109.582h-57.675c101.892-113.534,164.48-262.955,164.48-427.222,0-353.419-287.413-640.832-640.832-640.832S656.832,821.44,656.832,1174.859c0,164.267,62.588,313.687,164.48,427.222H763.638c-294.462,0-534.027,239.564-534.027,534.027v747.638a106.776,106.776,0,0,0,106.805,106.805H656.832V4806.242h1.709C255.351,5342.191,16,6008.016,16,6728.739a106.776,106.776,0,0,0,106.805,106.806H6317.518a106.776,106.776,0,0,0,106.805-106.806C6424.323,6008.016,6184.972,5342.191,5781.782,4806.242Zm358.973,1281.665H4715.437a106.805,106.805,0,0,1,0-213.611h213.611c176.656,0,320.416-143.76,320.416-320.417s-143.76-320.416-320.416-320.416H3860.994a106.805,106.805,0,1,1,0-213.61H4074.6c176.656,0,320.416-143.761,320.416-320.416s-143.76-320.417-320.416-320.417H3540.577a106.805,106.805,0,1,1,0-213.611h1217.8C5451.753,4583.019,5962.283,5273.943,6140.755,6087.907Zm-998.1-5340.269c235.613,0,427.222,191.609,427.222,427.222s-191.609,427.222-427.222,427.222-427.221-191.609-427.221-427.222S4907.045,747.638,5142.658,747.638ZM4288.215,2349.719V2136.108c0-176.656,143.76-320.416,320.417-320.416H5676.686c176.656,0,320.416,143.76,320.416,320.416V2776.94H5783.491V2136.108H5569.88V4553.327a3246.792,3246.792,0,0,0-320.417-302.259V2990.551H5035.853v1100.1q-103.814-71.773-213.61-135V3951.8h-6.729c-33.109-19.118-66.326-37.809-100.077-55.752V2136.108h-213.61V2776.94H4288.215ZM4181.41,2990.551h320.417v802.322a3176.432,3176.432,0,0,0-640.833-203.892V2456.524H4074.6v427.222A106.776,106.776,0,0,0,4181.41,2990.551ZM3220.161,213.611c235.613,0,427.221,191.609,427.221,427.222s-191.609,427.222-427.221,427.222S2792.94,876.445,2792.94,640.832,2984.549,213.611,3220.161,213.611Zm-854.443,1922.5V1602.081c0-176.656,143.76-320.416,320.416-320.416H3754.188c176.656,0,320.417,143.76,320.417,320.416v640.832H3860.994V1602.081H3647.383V3553.628c-2.884-.427-5.874-.534-8.758-.854q-92.28-12.176-186.269-18.9c-10.146-.748-20.293-1.709-30.439-2.349-31.508-1.923-63.122-3.2-94.95-4.272V2456.524H3113.356V3527.248c-31.722,1.068-63.442,2.35-94.95,4.272-10.146.641-20.293,1.6-30.44,2.349q-93.881,6.729-186.268,18.9c-2.884.427-5.875.534-8.759.854V1602.081H2579.329v640.832H2365.719Zm-106.805,854.443a106.776,106.776,0,0,0,106.805-106.805V2456.524h213.611V3589.088c-222.9,45.392-437.261,114.6-640.832,203.785V2990.551ZM1297.665,747.638c235.613,0,427.222,191.609,427.222,427.222s-191.609,427.222-427.222,427.222-427.222-191.609-427.222-427.222S1062.052,747.638,1297.665,747.638ZM656.832,2136.108V2776.94H443.222V2136.108c0-176.656,143.76-320.416,320.416-320.416H1831.692c176.656,0,320.416,143.76,320.416,320.416V2776.94H1938.5V2136.108H1724.886V3896.047a3194.766,3194.766,0,0,0-320.416,194.6v-1100.1H1190.859V4251.175a3221.715,3221.715,0,0,0-320.416,302.259V2136.108ZM1404.47,6621.934H231.533c26.167-740.7,323.3-1413.356,794.525-1922.5l918.633-.214c55.539,0,100.61,45.072,100.61,105.951a107.9,107.9,0,0,1-31.4,76.686,105.315,105.315,0,0,1-75.191,31.187H1724.672c-176.549,0-320.2,143.76-320.2,320.416s143.76,320.416,320.416,320.416H2792.94a106.913,106.913,0,0,1,106.805,106.806c0,58.956-47.635,106.805-106.271,106.805H1083.413c-176.336,0-319.775,143.76-319.775,320.416s143.76,320.417,320.416,320.417H1404.47a106.805,106.805,0,1,1,0,213.61Zm300.8-.107c11.935-33.51,19.612-69.143,19.612-106.7,0-176.656-143.76-320.417-320.416-320.417H1084.054a106.913,106.913,0,0,1-106.805-106.805c0-58.956,47.635-106.806,106.165-106.806H2793.474c176.442,0,319.882-143.76,319.882-320.416s-143.76-320.417-320.417-320.417H1724.886a106.913,106.913,0,0,1-106.805-106.806c0-58.956,47.849-106.805,106.592-106.805h214.145c85.658,0,166.082-33.324,226.534-94.1,60.238-60.559,93.562-141.3,93.562-232.836,0-173.239-140.983-314.115-314.221-314.115l-700.43.107c405.54-357.691,908.7-606.548,1463.661-702.78q125.764-21.628,250.673-32.789c4.058-.321,8.117-.534,12.069-.854a2948.837,2948.837,0,0,1,498.995,0c4.058.32,8.117.534,12.069.854q124.963,11.054,250.672,32.789a2969.753,2969.753,0,0,1,596.188,168.753h-788.01c-176.656,0-320.416,143.76-320.416,320.416s143.76,320.417,320.416,320.417H4074.6a106.805,106.805,0,1,1,0,213.61H3860.994c-176.656,0-320.417,143.76-320.417,320.416s143.76,320.417,320.417,320.417H4929.048a106.805,106.805,0,0,1,0,213.61H4715.437c-176.656,0-320.417,143.76-320.417,320.416s143.761,320.417,320.417,320.417h1464.3a2985.832,2985.832,0,0,1,29.051,320.416Z"
+                                            transform="translate(477.838 93.228)" fill="#aca8c1" />
+                                    </g>
+                                </svg>
+                                <h2 class="txtPopulacao">População</h2>
+                            </div>
+                        </label>
+                        <input type="radio" id="amostra" name='pa' style="display: none;" />
+                        <label class="check" for="amostra">
+                            <div class="amostra">
+                                <svg viewBox="0 0 488 492">
+                                    <defs>
+                                        <clipPath id="clip-amostras">
+                                            <rect width="488" height="492" />
+                                        </clipPath>
+                                    </defs>
+                                    <g id="amostras" clip-path="url(#clip-amostras)">
+                                        <path id="frascos"
+                                            d="M434.919,151.554H395.563V80.712H411.3v-55.1A23.614,23.614,0,0,0,387.693,2H308.979a23.464,23.464,0,0,0-15.742,6.14A23.464,23.464,0,0,0,277.494,2H198.781a23.464,23.464,0,0,0-15.743,6.14A23.464,23.464,0,0,0,167.3,2H88.584A23.614,23.614,0,0,0,64.97,25.614v55.1H80.712v70.841H41.356A39.4,39.4,0,0,0,2,190.91V466.4a7.871,7.871,0,0,0,7.871,7.871H57.1a7.871,7.871,0,0,0,7.87-7.87V442.79H411.3V466.4a7.871,7.871,0,0,0,7.871,7.871H466.4a7.871,7.871,0,0,0,7.871-7.871V190.91a39.4,39.4,0,0,0-39.356-39.356ZM301.108,25.614a7.871,7.871,0,0,1,7.871-7.871h78.712a7.871,7.871,0,0,1,7.871,7.871V64.97H371.949V33.485H356.206V64.97H340.464V33.485H324.721V64.97H301.108Zm31.485,70.841V222.4H379.82v48.01a38.514,38.514,0,0,0-16.593,8.391,21.693,21.693,0,0,1-29.785,0,38.513,38.513,0,0,0-16.593-8.391V80.712h62.97V96.455ZM379.82,112.2v94.455H348.335V112.2Zm0,174.584v76.642a31.485,31.485,0,1,1-62.97,0V286.782a32.2,32.2,0,0,1,7.021,4.5,37.215,37.215,0,0,0,48.928,0,32.2,32.2,0,0,1,7.021-4.5ZM301.108,80.712v70.841H285.365V80.712Zm0,86.584v31.485H285.365V167.3ZM190.91,25.614a7.871,7.871,0,0,1,7.871-7.871h78.713a7.871,7.871,0,0,1,7.871,7.871V64.97H261.751V33.485H246.009V64.97H230.266V33.485H214.524V64.97H190.91ZM222.4,96.455V222.4h47.228v48.01a38.513,38.513,0,0,0-16.6,8.39,21.693,21.693,0,0,1-29.785,0,38.514,38.514,0,0,0-16.593-8.391V80.712h62.97V96.455ZM269.623,112.2v94.455H238.137V112.2Zm0,174.584v76.642a31.485,31.485,0,1,1-62.97,0V286.782a32.192,32.192,0,0,1,7.021,4.5,37.215,37.215,0,0,0,48.928,0,32.194,32.194,0,0,1,7.021-4.5ZM190.91,80.712v70.841H175.167V80.712Zm0,86.584v31.485H175.167V167.3ZM80.712,25.614a7.871,7.871,0,0,1,7.871-7.871H167.3a7.871,7.871,0,0,1,7.871,7.871V64.97H151.554V33.485H135.811V64.97H120.069V33.485H104.326V64.97H80.712Zm62.12,253.179a21.693,21.693,0,0,1-29.785,0,38.513,38.513,0,0,0-16.593-8.383V222.4h47.228V96.455H96.455V80.713h62.97v189.7a38.513,38.513,0,0,0-16.593,8.383Zm16.593,7.989v76.642a31.485,31.485,0,0,1-62.97,0V286.782a32.192,32.192,0,0,1,7.021,4.5,37.215,37.215,0,0,0,48.928,0,32.2,32.2,0,0,1,7.021-4.5Zm-62.97-80.129V112.2H127.94v94.455ZM49.227,458.533H17.742V364.077H49.227Zm0-110.2H17.742V332.592H49.227Zm0-31.485H17.742v-15.74H49.227Zm0-31.485H17.742v-15.74H49.227ZM57.1,198.781a7.871,7.871,0,0,0-7.871,7.871V253.88H17.742V190.91a23.613,23.613,0,0,1,23.61-23.61h39.36v31.485ZM411.3,427.047H64.97V214.524H80.712v148.9a47.228,47.228,0,1,0,94.455,0v-148.9H190.91v148.9a47.228,47.228,0,1,0,94.455,0v-148.9h15.742v148.9a47.228,47.228,0,0,0,94.455,0v-148.9H411.3Zm47.228,31.485H427.047V364.077h31.485Zm0-110.2H427.047v-15.74h31.485Zm0-31.485H427.047V301.108h31.485Zm0-31.485H427.047V269.623h31.485Zm0-31.485H427.047V206.652a7.871,7.871,0,0,0-7.871-7.871H395.563V167.3h39.356a23.614,23.614,0,0,1,23.614,23.614Z"
+                                            transform="translate(5.862 7.862)" fill="#aca8c1" />
+                                    </g>
+                                </svg>
+                                <h2 class="txtAmostra">Amostra</h2>
+                            </div>
+                        </label>
+                    </div>
+                    <button class="proximo" id="proximo">Próximo</button>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        </div>
+    </section>
+    <section class="terceira-parte" style="display: none;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="texto-segundo">
+                        <h1 class="segundo-passo">
+                            Este é o segundo passo, preencha o<br> campo e selecione a opção desejada.
+                        </h1>
+                    </div>
+                    <div class="input-area">
+                        <h5 class="txtPadrao">Qual será o nome da sua variável?</h5>
+                        <input type="text" id="txtVariedade" class="txtVariavel" name="txtVariedade"
+                            placeholder="Coloque o nome que desejar."></input>
+                    </div>
+                    <h5 class="txtPadrao" id='txtTipoV'>Escolha o tipo da variável.</h5>
+                    <div id="opcoes-variavel">
+                        <input type="radio" id="nominal" name='TipoT' style="display: none;" />
+                        <label class="check" for="nominal">
+                            <div class="nominal">
+                                <svg viewBox="0 0 539 542">
+                                    <defs>
+                                        <clipPath id="clip-nominalnova2">
+                                            <rect width="539" height="542" />
+                                        </clipPath>
+                                    </defs>
+                                    <g id="nominalnova2" clip-path="url(#clip-nominalnova2)">
+                                        <g id="nominal" transform="translate(-5 -5)">
+                                            <path id="chartnominal"
+                                                d="M35,517A30.032,30.032,0,0,1,5,487V35A30.032,30.032,0,0,1,35,5H302.975a10,10,0,0,1,7.071,2.929l96,96a10,10,0,0,1,2.93,7.07V244a10,10,0,0,1-20,0V121h-66a30.033,30.033,0,0,1-30-30V25H35A10.011,10.011,0,0,0,25,35V487a10.011,10.011,0,0,0,10,10h86V417.375a10,10,0,0,1,10-10h64a10,10,0,0,1,10,10V497h20V360a10,10,0,0,1,10-10h64a10,10,0,0,1,10,10V497h20V290a10,10,0,0,1,10-10h64a10,10,0,0,1,10,10V497h20V349.249a10,10,0,0,1,20,0V497h44V233.749H453v40.5a10,10,0,1,1-20,0v-50.5a10,10,0,0,1,10-10h64a10,10,0,0,1,10,10V507a10,10,0,0,1-10,10Zm314-20h44V300H349Zm-104,0h44V370H245Zm-104,0h44V427.375H141ZM312.975,91a10.011,10.011,0,0,0,10,10h51.859L312.975,39.143ZM69,367.5a10,10,0,1,1,0-20h64a10,10,0,1,1,0,20Zm104.854-6.174a9.986,9.986,0,1,1,9.227,6.169A9.992,9.992,0,0,1,173.854,361.326Zm259.917-47.609A9.988,9.988,0,1,1,443,319.886,10,10,0,0,1,433.771,313.717ZM69,319.25a10,10,0,0,1,0-20H260a10,10,0,1,1,0,20Zm78.239-48.182a91.978,91.978,0,0,1-6.662-183.35V69.729a10,10,0,0,1,10-10A119.558,119.558,0,0,1,270,179.153a10,10,0,0,1-10,10H242.012a91.973,91.973,0,0,1-91.382,81.976C149.506,271.129,148.371,271.109,147.239,271.067Zm-68.459-86.9a71.977,71.977,0,0,0,71.8,66.959v0a72.089,72.089,0,0,0,71.282-61.973H150.577a10,10,0,0,1-10-10V107.872A71.98,71.98,0,0,0,78.781,184.17Zm81.8-15.015,88.923,0a99.615,99.615,0,0,0-88.923-88.925Z"
+                                                transform="translate(12 13)" fill="#aca8c1" />
+                                        </g>
+                                    </g>
+                                </svg>
+                                <h2 class="txtNominal">Quantitativa<br>nominal</h2>
+                            </div>
+                        </label>
+                        <input type="radio" id="ordinal" name='TipoT' style="display: none;" />
+                        <label class="check" for="ordinal">
+                            <div class="ordinal">
+                                <svg viewBox="0 0 539 542">
+                                    <defs>
+                                        <clipPath id="clip-ordinalnova">
+                                            <rect width="539" height="542" />
+                                        </clipPath>
+                                    </defs>
+                                    <g id="ordinalnova" clip-path="url(#clip-ordinalnova)">
+                                        <g id="ordinal" transform="translate(-3)">
+                                            <path id="ordinalnova-2" data-name="ordinalnova"
+                                                d="M13,512a10,10,0,0,1,0-20H36.117V401.8A26.912,26.912,0,0,1,63,374.918h49.024A26.912,26.912,0,0,1,138.906,401.8V492H194.6V317.825a26.913,26.913,0,0,1,26.88-26.882H270.5a26.913,26.913,0,0,1,26.886,26.882V492h55.692V173.536a26.912,26.912,0,0,1,26.882-26.882h49.024a26.914,26.914,0,0,1,26.882,26.882V492H477.8a10,10,0,1,1,0,20ZM373.078,173.536V492h62.789V173.536a6.89,6.89,0,0,0-6.882-6.882H379.96A6.888,6.888,0,0,0,373.078,173.536ZM214.6,317.825V492h62.781V317.825a6.89,6.89,0,0,0-6.881-6.882H221.482A6.891,6.891,0,0,0,214.6,317.825ZM56.116,401.8V492H118.9V401.8a6.888,6.888,0,0,0-6.878-6.881H63A6.888,6.888,0,0,0,56.116,401.8ZM55.04,303.31a10,10,0,1,1,10,10A10,10,0,0,1,55.04,303.31Zm36.635-27.82a10,10,0,0,1,0-14.142L271.444,81.578a10,10,0,0,1,14.143,0l37.28,37.28L421.723,20H384.366a10,10,0,1,1,0-20h60.5c.164,0,.322.017.483.024a9.965,9.965,0,0,1,10.492,10.491c.007.162.024.321.024.484V67.953a10,10,0,1,1-20,0V34.143L329.94,140.069a10,10,0,0,1-14.143,0l-37.281-37.28-172.7,172.7a10,10,0,0,1-14.143,0Z"
+                                                transform="translate(26.999 18)" fill="#aca8c1" />
+                                        </g>
+                                    </g>
+                                </svg>
+                                <h2 class="txtOrdinal">Quantitativa<br>ordinal</h2>
+                            </div>
+                        </label>
+                        <input type="radio" id="discreta" name='TipoT' style="display: none;" />
+                        <label class="check" for="discreta">
+                            <div class="discreta">
+                                <svg viewBox="0 0 539 542">
+                                    <defs>
+                                        <clipPath id="clip-discretanova">
+                                            <rect width="539" height="542" />
+                                        </clipPath>
+                                    </defs>
+                                    <g id="discretanova" clip-path="url(#clip-discretanova)">
+                                        <g id="discreta" transform="translate(-6 -6)">
+                                            <path id="discretanova-2" data-name="discretanova"
+                                                d="M6,486.006v-16H486v16Zm392-32a8,8,0,0,1-8-8v-280a8,8,0,0,1,8-8h56a8,8,0,0,1,8,8v280a8,8,0,0,1-8,8Zm8-16h40v-264H406Zm-96,16a8,8,0,0,1-8-8v-168a8,8,0,0,1,8-8h56a8,8,0,0,1,8,8v168a8,8,0,0,1-8,8Zm8-16h40v-152H318Zm-96,16a8,8,0,0,1-8-8v-112a8,8,0,0,1,8-8h56a8,8,0,0,1,8,8v112a8,8,0,0,1-8,8Zm8-16h40v-96H230Zm-96,16a8,8,0,0,1-8-8v-72a8,8,0,0,1,8-8h56a8,8,0,0,1,8,8v72a8,8,0,0,1-8,8Zm8-16h40v-56H142Zm-96,16a8,8,0,0,1-8-8v-48a8,8,0,0,1,8-8h56a8,8,0,0,1,8,8v48a8,8,0,0,1-8,8Zm8-16H94v-32H54Zm-16.677-88A426.919,426.919,0,0,0,403.28,66.118L415.928,30l-46.352,23.16a8,8,0,1,1-7.152-14.32l64-32h.006a8,8,0,0,1,10.73,3.587l32,64v0a8,8,0,0,1-14.32,7.152L431.3,34.5,418.392,71.4A442.927,442.927,0,0,1,38.68,366.007Zm8.68-184v-16h72v16Zm0-32v-16h72v16Zm0-32v-16H150v16Zm0-32v-16H150v16Z"
+                                                transform="translate(27 28.001)" fill="#aca8c1" />
+                                        </g>
+                                    </g>
+                                </svg>
+                                <h2 class="txtDiscreta">Quantitativa<br>discreta</h2>
+                            </div>
+                        </label>
+                        <input type="radio" id="continua" name='TipoT' style="display: none;" />
+                        <label class="check" for="continua">
+                            <div class="continua">
+                                <svg viewBox="0 0 539 542">
+                                    <defs>
+                                        <clipPath id="clip-continuanova">
+                                            <rect width="539" height="542" />
+                                        </clipPath>
+                                    </defs>
+                                    <g id="continuanova" clip-path="url(#clip-continuanova)">
+                                        <path id="continuanova-2" data-name="continuanova"
+                                            d="M464,472v-8H384v8a8,8,0,1,1-16,0v-8H296v8a8,8,0,1,1-16,0v-8H208v8a8,8,0,1,1-16,0v-8H120v8a8,8,0,1,1-16,0v-8H32v8a8,8,0,1,1-16,0v-8H8a8,8,0,1,1,0-16h8V376H8a8,8,0,0,1,0-16h8V288H8a8,8,0,1,1,0-16h8V200H8a8,8,0,1,1,0-16h8V112H8A8,8,0,1,1,8,96h8V16H8A8,8,0,0,1,8,0H24a8,8,0,0,1,8,8V368.864l78.127-142.048,88.537,88.528,84.28-130.256,85.6-23.343,7.8-85.865L451.2,16H416V0h64V64H464V26.248L391.68,84.12l-8.2,90.136L377.08,176H384v16H368V178.472l-74.921,20.44L287.2,208H296v16H280v-4.912L204.352,336H208v16H192V336h4.688l-80-80h-4.36L32,402.048V448h72V432h16v16h72V432h16v16h72V432h16v16h72V432h16v16h80V432h16v40a8,8,0,1,1-16,0Zm0-56V400h16v16Zm-96,0V400h16v16Zm-88,0V400h16v16Zm-88,0V400h16v16Zm-88,0V400h16v16Zm360-32V368h16v16Zm-96,0V368h16v16Zm-88,0V368h16v16Zm-88,0V368h16v16Zm-88,0V368h16v16Zm360-32V336h16v16Zm-96,0V336h16v16Zm-88,0V336h16v16Zm-176,0V336h16v16Zm360-32V304h16v16Zm-96,0V304h16v16Zm-88,0V304h16v16Zm-176,0V304h16v16Zm360-32V272h16v16Zm-96,0V272h16v16Zm-88,0V272h16v16Zm-176,0V272h16v16Zm360-32V240h16v16Zm-96,0V240h16v16Zm-88,0V240h16v16Zm184-32V208h16v16Zm-96,0V208h16v16Zm96-32V176h16v16Zm0-32V144h16v16Zm0-32V112h16v16ZM48,120V104h96v16ZM464,96V80h16V96ZM48,88V72h96V88Zm0-32V40H176V56Zm0-32V8H176V24Z"
+                                            transform="translate(27 34)" fill="#aca8c1" />
+                                    </g>
+                                </svg>
+                                <h2 class="txtContinua">Quantitativa<br>contínua</h2>
+                            </div>
+                        </label>
+                        <button class="concluir" onclick="calcular('idTabela')" id="calcular">Concluir</button>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+    </section>
+    <section class="tabelas-graficos" style="display: none;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <h1 class="txtPrincipal-2">
+                        Pronto, aí estão os resultados da sua<br> pesquisa, você pode salvá-los.
+                    </h1>
+                    <div id="print">
+                        <div class="table-responsive" id="txttab" style="margin-top: 10%;">
+                            <table class="table table-hover" id="idTabela">
+                                <tr>
+                                    <th id="TipoP">Tipo dos Dados</th>
+                                    <th>Frequência</th>
+                                    <th>Frequência%</th>
+                                    <th>Fac</th>
+                                    <th>Fac%</th>
+                                    <th>mediaIntervalo</th>
+                                </tr>
+                            </table>
+                        </div>
+                        <canvas id="grafico" style="max-width:630px; max-height:400px;"></canvas>
+                        <div id="inserirM"></div>
+                    </div>
+                    <div class="Quant" id="Quanti">
+                        <select class="TipoQ" id="TipoQuant" onclick="testeQ()">
+                            <option value="Nulo" name='TipoQ'>Selecione</option>
+                            <option value="Quartil" name='TipoQ'>Quartil</option>
+                            <option value="Quintil" name='TipoQ'>Quintil</option>
+                            <option value="Decil" name='TipoQ'>Decil</option>
+                            <option value="Percentil" name='TipoQ'>Percentil</option>
+                        </select>
+                        <select class="NumQ" id="NumQ" onclick="execuçãoQ()">
+                            <option value="Nulo" name='TipoQ'>Selecione</option>
+                        </select>
+                        <p id="QuantP"></p>
+                    </div>
+                    <div class="botao">
+                        <button id="salvar" onclick="saveAsPDF()">Salvar Relatório</button>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function toggle(enable) {
+            document.getElementById("txtDado").disabled = enable;
+            document.getElementById("txtDado").placeholder =
+                "Caso tenha selecionado seu arquivo, preencha o restante dos campos. Caso não, recarregue a página para reabilitar a área de texto.";
+        }
+        $('#manual').on('click', function () {
+            $('section.primeira-parte').hide();
+            $('section.segunda-parte').show();
+        });
+        $('#proximo').on('click', function () {
+            $('section.segunda-parte').hide();
+            $('section.terceira-parte').show();
+        });
+        $('.concluir').on('click', function () {
+            $('section.terceira-parte').hide();
+            $('section.tabelas-graficos').show();
+        });
+        $('#input-excel').on('click', function () {
+            $('section.primeira-parte').hide();
+            $('section.segunda-parte').show();
+        });
+
+        var hs = []
+        var i = 0
+        var acum = 0 //Gera as porcantagens
+        var numDigitados = [] //Organiza aordem
+        var ic = 0 //Intervalo de Classe
+        var amplitude = 0
+        var min = 1000000000000
+        var max = 0
+        var obj = {}
+        let obj2 = {}
+        var k = 0
+        var vet = []
+        var ict = 0
+        var pa = document.getElementsByName('pa')
+        var TipoT = document.getElementsByName('TipoT')
+        let VetColor = []
+        var vetQ = []
+        var str
+        var comp = []
+        var left
+        var cG = 0
+        var confirm = true
+        var test //pra comparação
+        var texto = '' //para receber o ;
+        var continua = '' //Para gerar a cor do Grafico continuo
+        var colunas = 0
+        var inserirM = document.getElementById("inserirM")
+        var pnT = []
+
+        function testeQ() {
+            if (TipoT[3].checked == true) {
+                let NumQ = document.getElementById("NumQ")
+                let TipoQ = document.getElementsByName("TipoQ")
+                if (TipoQ[1].selected) {
+                    NumQ.innerHTML = ""
+                    NumQ.innerHTML += `<option value="Nulo">Selecione</option>`
+                    formulasQuatiletc(4)
+                }
+                if (TipoQ[2].selected) {
+                    NumQ.innerHTML = ""
+                    NumQ.innerHTML += `<option value="Nulo">Selecione</option>`
+                    formulasQuatiletc(5)
+                }
+                if (TipoQ[3].selected) {
+                    NumQ.innerHTML = ""
+                    NumQ.innerHTML += `<option value="Nulo">Selecione</option>`
+                    formulasQuatiletc(10)
+                }
+                if (TipoQ[4].selected) {
+                    NumQ.innerHTML = ""
+                    NumQ.innerHTML += `<option value="Nulo">Selecione</option>`
+                    formulasQuatiletc(100)
+                }
+            } else {
+                let NumQ = document.getElementById("NumQ")
+                let TipoQ = document.getElementsByName("TipoQ")
+                if (TipoQ[1].selected) {
+                    NumQ.innerHTML = ""
+                    NumQ.innerHTML += `<option value="Nulo">Selecione</option>`
+                    inserirOpcoes(4)
+                }
+                if (TipoQ[2].selected) {
+                    NumQ.innerHTML = ""
+                    NumQ.innerHTML += `<option value="Nulo">Selecione</option>`
+                    inserirOpcoes(5)
+                }
+                if (TipoQ[3].selected) {
+                    NumQ.innerHTML = ""
+                    NumQ.innerHTML += `<option value="Nulo">Selecione</option>`
+                    inserirOpcoes(10)
+                }
+                if (TipoQ[4].selected) {
+                    NumQ.innerHTML = ""
+                    NumQ.innerHTML += `<option value="Nulo">Selecione</option>`
+                    inserirOpcoes(100)
+                }
+            }
+        }
+
+
+        let intervaloDeClasse = {} // separa o valor entre X I--- y arredondado
+        let valoresTopo = {}    // limites maiores
+        let valoresMenores = {} // limites menores linhas +- 700
+
+        const FormulaMedina = (facTotal, facLinhaAnterior, frequenciaLinhaAtual, h, valorMenorLimite) => {
+            let part1 = (((facTotal) - facLinhaAnterior) / frequenciaLinhaAtual)
+            let valorMediana = ((part1 * h) + valorMenorLimite)
+            console.log({ facTotal, facLinhaAnterior, frequenciaLinhaAtual, h, valorMenorLimite })
+            return (valorMediana)
+        };
+
+        const valoresRetirados = (limite1) => {
+            let facTotal = 0
+            let multipli = 0
+            for (let prop in obj) { //Calculo de mediana
+                multipli += (obj[prop] * intervaloDeClasse[prop]) // recebe valores a serem multiplicado
+                facTotal += obj[prop]  // recontagem do valor de fac
+            };
+
+            let linhaMedia = 0 // p ara calculo de mediana
+            let h = ic
+
+            let x = 0 // limite top
+            let y = 0   // limite baixo
+            let facLinhaAnterior = 0 // fac da linha anterior
+            let valorMenorLimite = 0 // menor xI--y, pega valor de X
+            let frequenciaLinhaAtual = 0 // seleciona a frequencia da linha atual
+            let modaFIC = -2 // maior fic entre so fic
+            let moda = 0    // localização moda no vertor
+            let facLimitado = 0
+            let veri = false
+            let auxFac = 0
+            for (let prop in obj) { // para selecionar a linha  de mediana
+                x += obj[prop]
+                //  console.log(prop, ' prop')
+                for (let i = y; i <= x; i += 0.01) { // passar de 1 em 1 
+                    //  console.log((i).toFixed(2), '//q', ((facTotal * limite1)))
+                    if (((i).toFixed(1)) == ((facTotal * limite1).toFixed(1))) { // comapra em buscar da linha de mediana
+                        facLimitado = i.toFixed(0)
+                        valorMenorLimite = valoresMenores[prop]
+                        facLinhaAnterior = auxFac
+                        frequenciaLinhaAtual = obj[prop]
+                        linhaMedia = prop //linha mediana localizada
+                        auxFac[facLimitado] = prop
+                    };
+                };
+                y += obj[prop]
+                if (x != auxFac) {
+                    auxFac = x
+                    console.log(auxFac, '//', x)
+                }
+
+                if (modaFIC <= obj[prop]) { //procurando maior FIC para calculo de moda
+                    modaFIC = obj[prop]
+                    moda = prop
+                }
+
+            };
+
+            console.log(auxFac)
+            //console.log(limite1 , ' : ' , {facLimitado, facLinhaAnterior, frequenciaLinhaAtual,h, valorMenorLimite})
+            let teste = FormulaMedina(facLimitado, facLinhaAnterior, frequenciaLinhaAtual, h, valorMenorLimite)
+
+            return ((teste).toFixed(0))
+
+
+        };
+
+
+        const encontraValor = (TipoQ, NumQ) => { // para encontrar a % a ser calculada
+            for (let i = 0; i <= 4; i++) {
+                if (TipoQ[i].selected && NumQ.value != "Nulo") {
+                    let dividendo = 0
+                    switch (i) { // selecionar qual das 4 opções
+                        case 0:
+                            dividendo = null;
+                            break;
+                        case 1:
+                            dividendo = 4;
+                            break;
+                        case 2:
+                            dividendo = 5;
+                            break;
+                        case 3:
+                            dividendo = 10;
+                            break;
+                        case 4:
+                            dividendo = 100;
+                            break;
+                    };
+                    if (dividendo == null) { return 0 } else {
+                        return ((NumQ.value / dividendo)) //retornar o valor já em %
+                    };
+
+                };
+            };
+        };
+        const execuçãoQ = () => {
+            if (TipoT[3].checked == true) { // decil e os krai para quantitativa
+                NumQ = document.getElementById("NumQ")
+                QuantP = document.getElementById("QuantP")
+                let TipoQ = document.getElementsByName("TipoQ")
+                let Qtest = false
+                let indice = 0
+
+                if (NumQ.value != null) {
+                    let valor = encontraValor(TipoQ, NumQ); // para encontrar a % a ser calculada
+                    let exe = valoresRetirados(valor)
+
+                    if (exe != Infinity && exe != undefined) {
+                        QuantP.innerHTML = exe
+                    }
+                };
+            } else {
+                NumQ = document.getElementById("NumQ")
+                QuantP = document.getElementById("QuantP")
+                let TipoQ = document.getElementsByName("TipoQ")
+                let Qtest = false
+                let indice = 0
+                if (TipoQ[1].selected && NumQ.value != "Nulo") {
+                    let i = 0
+                    let Ql = NumQ.value
+                    Ql = Ql * 25
+                    if (Ql == 100) {
+                        indice = numDigitados.length - 1
+                    } else {
+                        while (Qtest == false) {
+                            if (Ql >= pnT[i] && Ql <= pnT[i + 1]) {
+                                indice = i + 1
+                                Qtest = true
+                            }
+                            i++
+                        }
+                    }
+                    QuantP.innerHTML = numDigitados[indice]
+                }
+                if (TipoQ[2].selected && NumQ.value != "Nulo") {
+                    let i = 0
+                    let Ql = NumQ.value
+                    Ql = Ql * 20
+                    if (Ql == 100) {
+                        indice = numDigitados.length - 1
+                    } else {
+                        while (Qtest == false) {
+                            if (Ql >= pnT[i] && Ql <= pnT[i + 1]) {
+                                indice = i + 1
+                                Qtest = true
+                            }
+                            i++
+                        }
+                    }
+                    QuantP.innerHTML = numDigitados[indice]
+                }
+                if (TipoQ[3].selected && NumQ.value != "Nulo") {
+                    let i = 0
+                    let Ql = NumQ.value
+                    Ql = Ql * 10
+                    if (Ql == 10) {
+                        indice = 0
+                    } else if (Ql == 100) {
+                        indice = numDigitados.length - 1
+                    } else {
+                        while (Qtest == false) {
+                            if (Ql >= pnT[i] && Ql <= pnT[i + 1]) {
+                                indice = i + 1
+                                Qtest = true
+                            }
+                            i++
+                        }
+                    }
+                    QuantP.innerHTML = numDigitados[indice]
+                }
+                if (TipoQ[4].selected && NumQ.value != "Nulo") {
+                    let i = 0
+                    let Ql = NumQ.value
+                    indice = Math.round((colunas * Ql) / 100)
+                    if (indice > numDigitados.length - 1){
+                        indice = numDigitados.length - 1
+                    }
+                    QuantP.innerHTML = numDigitados[indice]
+                }
+            }
+        };
+
+        const formulasQuatiletc = (limite) => {
+            for (let i = 0; i < limite; i++) {
+                NumQ.innerHTML += `<option value=${i + 1}>${i + 1} </option>`
+            }
+        }
+
+        function processamento() {
+            var valores = {} // auxliar
+            for (let prop in test) {
+                valores[prop] = test[prop]
+                if (test[prop] == "	") {
+                    valores[prop] = ';'
+                }
+            }
+            for (let prop in valores) {
+                texto += valores[prop]
+
+            }
+
+
+
+        }
+        $('#input-excel').change(function (e) {
+            confirm = false
+            var reader = new FileReader();
+            reader.readAsArrayBuffer(e.target.files[0]);
+
+            reader.onload = function (e) {
+                var data = new Uint8Array(reader.result);
+                var wb = XLSX.read(data, {
+                    type: 'array'
+                });
+                var htmlstr = XLSX.write(wb, {
+                    sheet: "sheet no1",
+                    type: 'binary',
+                    bookType: 'html'
+                });
+
+                test = XLSX.write(wb, {
+                    sheet: "sheet no1",
+                    type: 'binary',
+                    bookType: 'txt'
+                });
+                processamento();
+            }
+
+        });
+
+        function calcular(idTabela) {
+            if (confirm == false) {
+                str = texto
+            } else {
+                str = document.getElementById('txtDado').value
+            }
+            // console.log(str, 'antes split')
+            comp = str.split(";")
+            str = str.split(";")
+            // console.log(comp, 'dps do split')
+            //Upload
+
+            while (cG < comp.length) { //insere dados na tabela separados por ';' pelo número de vezes igual a quantidade de elementos do vetor
+
+                if (TipoT[0].checked == true || TipoT[1].checked == true) { //processamento caso a primeira ou a segunda opção seja selecionada
+                    left = comp[cG] //Responsável por pegar os valores do vetor
+                    var leftC = String(left) //Converção para texto
+                    if (obj[leftC]) {
+                        obj[leftC]++ //Caso o elemento ja tenha sido recebido a propriedade do obejeto recebe +1
+                    } else {
+                        obj[leftC] = 1 //Caso o elemento não tenha sido adicionado a ele  
+                    }
+                    acum++
+                    //console.log('OBJ ! : ', obj)
+                }
+                if (TipoT[2].checked == true) { // processamento caso a terceira opção seja selecionada
+
+                    var left = comp[cG] //Responsável por pegar os valores do vetor
+                    var leftC = Number(left) //Converte para número
+                    var teste = isNaN(leftC) //Caso o usuário digite um elemento que não seja um número
+                    if (teste == true) {
+                        if (teste == true) {
+                            alert('Insira os dados novamente!')
+                            document.getElementById('txtDado').value = ''
+                            obj = {}
+                            break;
+                        }
+                    } else {
+                        if (obj[leftC]) {
+                            obj[leftC]++ //Caso o elemento ja tenha sido recebido a propriedade do obejeto recebe +1
+                        } else {
+                            obj[leftC] = 1 //Caso o elemento não tenha sido adicionado a ele 
+                        }
+                    }
+                    acum++
+                }
+                if (TipoT[3].checked == true) { //processamento caso a terceira seja selecionada
+
+                    var left = comp[cG] //Responsável por pegar os valores do vetor
+                    var leftC = Number(left) //Converte para número
+                    var teste = isNaN(leftC) //Caso o usuário digite um elemento que não seja um número
+                    if (teste == true) {
+                        if (teste == true) {
+                            alert('Insira os dados novamente!')
+                            document.getElementById('txtDado').value = ''
+                            obj = {}
+                            break;
+                        }
+                    } else {
+                        acum++
+                        if (obj2[leftC]) {
+                            obj2[leftC]++ //Caso o elemento ja tenha sido recebido a propriedade do obejeto recebe +1
+                        } else {
+                            obj2[leftC] = 1 //Caso o elemento não tenha sido adicionado a ele 
+                        }
+                        if (leftC > max) { //Verifica se é o maior número
+                            max = leftC
+                        }
+                        if (leftC < min) { //Verifica se é o menor número
+                            min = leftC
+                        }
+                        amplitude = max - min //Calculo da amplitude
+                        k = Math.sqrt(acum) //arredonda o valor
+                        k = Math.trunc(k) //remove as casas decimais
+                        if (amplitude % k != 0) { //verifica se o número divide por 'k' e retorna um número inteiro
+                            amplitude++ //caso a divisão não retorne um número inteiro 
+                            if (amplitude % k != 0) { //Verifica se o resultado da divisão é um valor inteiro
+                                amplitude = amplitude - 2 // caso não seja um inteiro, o valor perde dois números
+                            }
+                            max
+                        }
+                        ic = amplitude / k //valor do intervalo de classe
+                        //  console.log(ic)
+                        vet[acum] = leftC //Vetor para gerar gráfico
+
+                    };
+                };
+                cG++
+            };
+            //FimUpload
+            var Variedade = document.getElementById('txtVariedade')
+            if (TipoT[3].checked == true) { //Processamento para gerar a tabéla caso a tabela Quantitativa Contínua
+                for (let passo = min; passo < (max + 1); passo) { // determina o passo que ira percorrer os vetores
+                    for (let j = (passo - 10); j <= (passo + ic); j++) {
+                        for (let prop in obj2) {
+                            if (j == prop) { // seleciona dados para processamentos
+                                if (j >= passo && j <= (passo + ic - 0.001)) { // pega só valores entre valorAtual l-- max
+                                    if (obj[`${passo.toFixed(0)}--${(passo + ic).toFixed(0)}`]) { // testa se obj já criado
+                                        obj[`${passo.toFixed(0)}--${(passo + ic).toFixed(0)}`] += obj2[prop] // crescenta valores dentro dos parametros
+                                        intervaloDeClasse[`${passo.toFixed(0)}--${(passo + ic).toFixed(0)}`] = ((passo + passo + ic) / 2).toFixed(0) // seleciona media de intervalo de classe
+                                        valoresTopo[`${passo.toFixed(0)}--${(passo + ic).toFixed(0)}`] = passo + ic //pega valor topo
+                                        valoresMenores[`${passo.toFixed(0)}--${(passo + ic).toFixed(0)}`] = passo
+                                    } else {
+                                        obj[`${passo.toFixed(0)}--${(passo + ic).toFixed(0)}`] = obj2[prop]; // cria novo valor dentro do obj
+                                        intervaloDeClasse[`${passo.toFixed(0)}--${(passo + ic).toFixed(0)}`] = ((passo + passo + ic) / 2).toFixed(0)
+                                        valoresTopo[`${passo.toFixed(0)}--${(passo + ic).toFixed(0)}`] = passo + ic //pega valor topo
+                                        valoresMenores[`${passo.toFixed(0)}--${(passo + ic).toFixed(0)}`] = passo // valores topo linhas anteres
+                                    };
+                                };
+                                break
+                                console.log('não')
+                            };
+                            /*
+                            1;1;2;2;3;3;3;4;5;6;7;7;8;9;10;11;12;13;14;15;16;3;2;7;8
+                             */
+                        };
+                    };
+                    passo += ic
+                };
+                let facTotal = 0
+                let multipli = 0
+                for (let prop in obj) { //Calculo de mediana
+                    multipli += (obj[prop] * intervaloDeClasse[prop]) // recebe valores a serem multiplicado
+                    facTotal += obj[prop]  // recontagem do valor de fac
+                };
+
+                let linhaMedia = 0 // p ara calculo de mediana
+                let h = ic
+                let x = 0 // limite top
+                let y = 0   // limite baixo
+                let facLinhaAnterior = 0 // fac da linha anterior
+                let valorMenorLimite = 0 // menor xI--y, pega valor de X
+                let frequenciaLinhaAtual = 0 // seleciona a frequencia da linha atual
+                let modaFIC = -2 // maior fic entre so fic
+                let moda = 0    // localização moda no vertor
+                let test = {}
+                for (let prop in obj) { // para selecionar a linha  de mediana
+                    x += obj[prop]
+                    for (let i = y; i <= x; i++) { // passar de 1 em 1 
+                        if (i == ((facTotal * 0.5).toFixed(0))) { // comapra em buscar da linha de mediana
+                            valorMenorLimite = valoresMenores[prop]
+                            facLinhaAnterior = y
+                            frequenciaLinhaAtual = obj[prop]
+
+                            linhaMedia = prop //linha mediana localizada
+                        };
+                    };
+                    y += obj[prop]
+
+                    if (modaFIC <= obj[prop]) { //procurando maior FIC para calculo de moda
+                        modaFIC = obj[prop]
+                        moda = prop
+                    }
+
+                };
+                //calculo mediana
+                valorMediana = FormulaMedina(facTotal, facLinhaAnterior, frequenciaLinhaAtual, h, valorMenorLimite)
+
+
+
+                inserirM.innerHTML += '<p>' + 'moda :' + intervaloDeClasse[moda] + '</p>'
+                inserirM.innerHTML += '<p>' + 'Mediana :  ' + ((valorMediana + 0).toFixed(2)) + '</p>'
+                inserirM.innerHTML += '<p>' + 'Media: ' + ((multipli / facTotal).toFixed(0)) + '</p>'// inclui media no html
+
+
+            };
+            let i = 0
+
+            for (let prop in obj) {
+                numDigitados[i] = prop //vetor recebe as propriedades
+                i++
+            };
+            if (TipoT[0].checked) {
+                numDigitados.sort()
+            } else if (TipoT[2].checked || TipoT[3].checked) {
+                mergeSort(numDigitados)
+            }
+
+
+            i = 0
+            let frac = 0
+            for (let i in obj) {
+                frac += obj[i]
+            };
+            // console.log('OBJ : ',obj)
+            for (let prop in obj) { //Responsável por gerar as tabelas
+                // TipoP    txtVariedade
+                //   console.log('DENTRO DO OBJ')
+                let x = document.getElementById('txtVariedade').value;
+                var ti = document.getElementById('txtVariedade').value;
+                document.getElementById('TipoP').innerHTML = x;
+                var tabela = document.getElementById(idTabela);
+                var numeroLinhas = tabela.rows.length;
+                var linha = tabela.insertRow(numeroLinhas);
+                var celula1 = linha.insertCell(0);
+                var celula2 = linha.insertCell(1);
+                var celula3 = linha.insertCell(2);
+                var celula4 = linha.insertCell(3);
+                var celula5 = linha.insertCell(4);
+                let celula6 = linha.insertCell(5);
+                if (TipoT[0].checked == true || TipoT[2].checked == true || TipoT[1].checked == true) {
+                    celula1.innerHTML = numDigitados[i] //Nome do dado
+                    celula2.innerHTML = obj[numDigitados[i]] //Frequencia
+                    celula3.innerHTML = `${((obj[numDigitados[i]] / acum) * 100).toFixed(2)}%` //Frequencia%
+                    // Processamento para 4 e quinta coluna
+                    colunas += obj[numDigitados[i]]
+                    celula4.innerHTML = colunas //frac
+                    celula5.innerHTML = ((colunas / frac) * 100).toFixed(0) + '%' //frac%
+                    pnT[i] = ((colunas / frac) * 100).toFixed(0)
+                    vetQ[i] = obj[numDigitados[i]]
+                } else {
+
+                    celula1.innerHTML = prop //Nome do dado
+                    celula2.innerHTML = obj[prop] //Frequencia
+                    celula3.innerHTML = `${((obj[prop] / acum) * 100).toFixed(2)}%` //Frequencia%
+                    //Processamento para 4 e quinta coluna
+                    colunas += obj[prop] //fac
+                    celula4.innerHTML = colunas //frac
+                    celula5.innerHTML = ((colunas / frac) * 100).toFixed(0) + '%' //frac%
+                    celula6.innerHTML = intervaloDeClasse[prop]
+                    pnT[i] = ((colunas / frac) * 100).toFixed(0)
+                    vetQ[i] = obj[prop]
+                    numDigitados[i] = prop
+                };
+                i++
+            };
+            //
+            if (TipoT[3].checked == true) {
+                fillcolor = getRandomColor()
+            }
+            //Qualitativa Nominal
+            if (TipoT[0].checked == true) {
+                //Gerar Gráfico
+                var ctx = document.getElementById("grafico")
+                var chartGraph = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: numDigitados,
+                        datasets: [{
+                            label: "Frequencia",
+                            data: vetQ,
+                            border: 6,
+                            backgroundColor: [
+
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                            ],
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        animationSteps: 80,
+                        animationEasing: "easeOutQuart",
+                        //String - Point label font declaration
+                        pointLabelFontFamily: "Arial",
+                        //String - Point label font weight
+                        pointLabelFontStyle: "normal",
+                        //Number - Point label font size in pixels
+                        pointLabelFontSize: 20,
+                        //String - Point label font colour
+                        pointLabelFontColor: "black",
+                        maintainAspectRatio: false,
+                        title: {
+                            text: ti,
+                            display: true
+                        },
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+
+                })
+                //Não tem Media
+                inserirM.innerHTML += `<p>Não existe média nessa situação</p>`
+                //Moda/O elemento com mais menções
+                moda()
+                //Mediana/Elemento Central
+                mediana()
+            }
+            //Qualitativa Discreta
+            else if (TipoT[2].checked == true) {
+                //Gerar Gráfico
+                var ctx = document.getElementById("grafico")
+                var chartGraph = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: numDigitados,
+                        datasets: [{
+                            label: "Frequencia",
+                            data: vetQ,
+                            border: 6,
+                            backgroundColor: [
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                            ],
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        animationSteps: 80,
+                        animationEasing: "easeOutQuart",
+                        //String - Point label font declaration
+                        pointLabelFontFamily: "Arial",
+                        //String - Point label font weight
+                        pointLabelFontStyle: "normal",
+                        //Number - Point label font size in pixels
+                        pointLabelFontSize: 20,
+                        //String - Point label font colour
+                        pointLabelFontColor: "black",
+                        maintainAspectRatio: false,
+                        title: {
+                            text: ti,
+                            display: true
+                        },
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+
+                })
+                //Media
+                media()
+                //Moda/O elemento com mais menções
+                moda()
+                //Mediana/Elemento Central
+                mediana()
+            }
+            //Qualitativa Ordinal 
+            else if (TipoT[1].checked) {
+                //Gerar Gráfico
+                var ctx = document.getElementById("grafico")
+                var chartGraph = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: numDigitados,
+                        datasets: [{
+                            label: "Frequencia",
+                            data: vetQ,
+                            border: 6,
+                            backgroundColor: [
+
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                                fillcolor = getRandomColor(), fillcolor = getRandomColor(),
+                            ],
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        animationSteps: 80,
+                        animationEasing: "easeOutQuart",
+                        //String - Point label font declaration
+                        pointLabelFontFamily: "Arial",
+                        //String - Point label font weight
+                        pointLabelFontStyle: "normal",
+                        //Number - Point label font size in pixels
+                        pointLabelFontSize: 20,
+                        //String - Point label font colour
+                        pointLabelFontColor: "black",
+                        maintainAspectRatio: false,
+                        title: {
+                            text: ti,
+                            display: true
+                        },
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                })
+                //Média
+                inserirM.innerHTML += `<p>Não existe Média nesse caso<p>`
+                //Mediana
+                mediana()
+                //Moda
+                moda()
+            } else {
+                var ctx = document.getElementById("grafico").getContext('2d')
+                var chartGraph = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: numDigitados,
+                        datasets: [{
+                            label: "Frequencia",
+                            data: vetQ,
+                            border: 6,
+                            backgroundColor: [
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                                '#0000FF', '#0000FF',
+                            ],
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        title: {
+                            text: ti,
+                            display: true
+                        },
+                        scales: {
+                            xAxes: [{
+                                display: false,
+                                barPercentage: 1.3,
+                                ticks: {
+                                    max: 3,
+                                },
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }, {
+                                display: true,
+                                ticks: {
+                                    autoSkip: false,
+                                    max: 4,
+                                },
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                })
+
+            }
+        };
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF".split("");
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function saveAsPDF() {
+            var doc = new jsPDF({
+                unit: 'cm'
+            });
+            data = new Date();
+            html2canvas(document.getElementById("print" /* div que tira foto*/), {
+                onrendered: function (canvas) {
+                    var img = canvas.toDataURL();
+                    doc.addImage(img, 'JPEG', 1, 1, 19, 22); //posição no pdf
+                    doc.save("Relatorio - " + data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear() + ".pdf");
+                }
+            });
+        }
+
+        function media() {
+            Converte(str)
+            let total = str.reduce((prev, elem) => prev + elem, 0)
+            inserirM.innerHTML = `<p>A média é ${(total / colunas).toFixed(2)}</p>`
+        }
+
+        function moda() {
+            let i = 0
+            let c = 0
+            let aux = 0
+            let ref = []
+            let modas = []
+            while (i <= numDigitados.length) {
+                if (obj[numDigitados[i]] > aux) {
+                    aux = obj[numDigitados[i]]
+                }
+                i++
+            }
+            console.log(aux)
+            i = 0
+            while (i <= numDigitados.length) {
+                if (obj[numDigitados[i]] >= aux && obj[numDigitados[i]] > 1) {
+                    modas.push(numDigitados[i])
+                }
+                i++
+            }
+
+            if (TestVetor(str)) {
+                inserirM.innerHTML += `<p>Não existe moda, todos os elementos são iguanlmente frequentes</p>`
+            } else if (moda.length > 1) {
+                inserirM.innerHTML += `<p>A Modas são ${modas}</p>`
+            } else {
+                inserirM.innerHTML += `<p>A Moda é ${modas}</p>`
+            }
+
+        }
+
+        function mediana() {
+
+            if (TipoT[2].checked || TipoT[0].checked) {
+                console.log("Não caiu no if")
+                Converte(str) //Converte pra número
+                str = mergeSort(str)
+            }
+
+            if (str.length % 2 == 0) {
+                inserirM.innerHTML += `<p>As Medianas são ${str[(str.length / 2) - 1]} e ${str[str.length / 2]}</p>`
+            } else {
+                inserirM.innerHTML += (`<p>A Mediana é ${str[(Math.round(str.length / 2)) - 1]}</p>`)
+            }
+        }
+
+        function juntarVetores(vetEsq, vetDir) {
+            var pEsq = 0
+            var pDir = 0
+            var resultado = []
+            while (pEsq < vetEsq.length && pDir < vetDir.length) {
+                if (vetEsq[pEsq] < vetDir[pDir]) {
+                    resultado.push(vetEsq[pEsq])
+                    pEsq++
+                    //pEsq e pDir são apenas indices
+                } else {
+                    resultado.push(vetDir[pDir])
+                    pDir++
+                }
+            }
+            //console.log(resultado)
+            let sobra
+            if (pEsq < pDir) { /*Vetor da esquerda acabou*/
+                sobra = vetEsq.slice(pEsq) /*Pega do elemento vEsq para frente*/
+            } else {
+                sobra = vetDir.slice(pDir)
+            }
+            return resultado.concat(sobra) //resultado + sobra / soma de arrays/*comando para juntar dois vetores*/
+        }
+        //function principal
+        function mergeSort(vet) {
+            if (vet.length > 1) { // Para repetir atráves da recursividade até só restar um valor
+                let meio = Math.floor(vet.length / 2) //para receber o indice do meio do vetor /*comando para arredondar para baixo*/
+                let vetEsq = vet.slice(0, meio) //vetor da esquerda recebe do zero até o meio do vetor
+                let vetDir = vet.slice(meio) //vetor da direita recebe da metade até o fim do vetor
+                vetEsq = mergeSort(vetEsq) //Divide o vetor da esquerda até só restar um valor
+                vetDir = mergeSort(vetDir) //Divide o vetor da direita até só restar um valor
+                vet = juntarVetores(vetEsq, vetDir)
+            }
+            return vet
+        }
+
+        function Converte(str) {
+            let i = 0
+            if (TipoT[2].checked) {
+                console.log(`Caiu no if`)
+                while (i < str.length) {
+                    console.log(`Caiu no while`)
+                    str[i] = Number(str[i])
+                    i++
+                }
+            }
+            return str
+        }
+
+        function TestVetor(vetor) {
+            var filtrado = vetor.filter((elem, pos, vet) => {
+                return vet.indexOf(elem) == pos;
+            });
+            return filtrado.length === 1 || filtrado.length === vetor.length;
+        }
+        function inserirOpcoes(limite) {
+            for (let i = 0; i < limite; i++) {
+                NumQ.innerHTML += `<option value=${i + 1}>${i + 1}</option>`
+            }
+        }
+    </script>
+</body>
+
+</html>
